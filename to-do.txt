@@ -10,7 +10,7 @@
     - sample dataflow : 
         - migrate LDM_FIN_ETL.LIB_DCT_BI_LOYALTY_POINT
         [ incremental ]
-        [ snapshot ] 
+        [ snapshot with default value for dbt_valid_to ] 
 
     - docs serve - docs gen 
 
