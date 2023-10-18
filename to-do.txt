@@ -1,0 +1,12 @@
+-- sprint 5 
+    - dbt-101 con't 
+    - Install dbt-oracle /
+    - connection to oracle db /
+    - sample model 
+    - sample dataflow 
+        - incremental 
+        - snapshot 
+    - docs serve - docs gen 
+
+-- next sprint 
+    - integrate dbt with airflow 

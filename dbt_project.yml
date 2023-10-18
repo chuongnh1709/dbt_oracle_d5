@@ -56,3 +56,30 @@ models:
       +tags: staging
       +materialized: view
       +schema: ldm_fin # staging
+
+
+# on-run-start: "{{ generate_sequences() }}" 
+# on-run-end: "{{ generate_sequences() }}" 
+
+vars:  
+  # Global Variables : The variable will be accessible in all resources
+  # syntax : {{ var("d_def_value_date_future") }}
+  'dbt_date:time_zone'      : 'Asia/Ho_Chi_Minh'
+  v_xna                     : 'XNA'
+  v_xap                     : 'XAP'
+  n_minus_one               : -1
+  n_one                     : 1
+  n_two                     : 2
+  n_three                   : 3
+  n_zero                    : 0
+  v_code_zero               : '0'
+  v_flag_x                  : 'X'
+  v_flag_y                  : 'Y'
+  v_flag_n                  : 'N'
+  v_code_change_type_del    : 'D'
+  d_def_value_date_hist     : date'1000-01-01'
+  d_def_value_date_future   : date'3000-01-01'
+  high_timestamp            : date'3000-01-01 00:00:00'
+  v_code_active             : 'a'
+  v_code_due_status_y       : 'y'
+  v_code_due_status_n       : 'n'
