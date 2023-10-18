@@ -1,0 +1,9 @@
+version: 2
+
+#macros:
+#  - name: extract_email_domain
+#    description: Strips the email domain out of a user's email
+#    arguments:
+#      - name: email
+#        type: string
+#        description: email name
