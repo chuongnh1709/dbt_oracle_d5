@@ -23,13 +23,16 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
+sources:  
+  dbt_oracle_d5:  
+    +enabled: true
+
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
 # In this example config, we tell dbt to build all models in the example/
 # directory as views. These settings can be overridden in the individual model
 # files using the `{{ config(...) }}` macro.
-
 models: 
   dbt_oracle_d5:
     marts:
@@ -40,22 +43,18 @@ models:
       
       ldm_fin:
         +tags: ldm_fin
-        +schema: ldm_fin
 
       ldm_fin_out:
         +tags: ldm_fin_out
         +materialized: view
-        +schema: ldm_fin
 
-    mytest:
+    example:
       +tags: test
       +materialized: view
-      +schema: mytest # my_schema
 
     staging: 
       +tags: staging
       +materialized: view
-      +schema: ldm_fin # staging
 
 
 # on-run-start: "{{ generate_sequences() }}" 

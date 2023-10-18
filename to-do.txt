@@ -1,8 +1,10 @@
 -- sprint 5 
     - dbt-101 con't 
     - Install dbt-oracle /
+    - target and multiple target / 
     - connection to oracle db /
-    - sample model 
+    - add source (source table must be on DW) /
+    - sample model /
     - sample dataflow 
         - incremental 
         - snapshot 
