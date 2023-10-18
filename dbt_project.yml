@@ -82,3 +82,8 @@ vars:
   v_code_active             : 'a'
   v_code_due_status_y       : 'y'
   v_code_due_status_n       : 'n'
+
+
+dispatch: # inject
+  - macro_namespace: dbt
+    search_order: ['dbt_oracle_d5', 'my_snapshot_helpers', 'dbt']

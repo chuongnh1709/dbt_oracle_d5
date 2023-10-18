@@ -95,7 +95,7 @@
             "path": "C:\\WINDOWS\\System32\\cmd.exe",
             "args": ["/k", "bin\\windows\\terminal_startup.bat"]
         }
-        "PowerShell": {
+        ,"PowerShell": {
         "source": "PowerShell",
         "icon": "terminal-powershell",
         "args": [
