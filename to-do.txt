@@ -15,5 +15,9 @@
     - docs serve - docs gen 
 
 -- next sprint 
+    - migrate 1 flow in dct_contract 
+    - 
+
+-- next sprint 
     - integrate dbt with airflow 
     - dbt_artifacts 

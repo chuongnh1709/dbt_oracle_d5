@@ -48,21 +48,31 @@ models:
         +tags: ldm_fin_out
         +materialized: view
 
-    example:
-      +tags: test
-      +materialized: view
+      ldm_sbv:
+        +tags: ldm_sbv
+
+      ldm_sbv_out:
+        +tags: ldm_sbv_out
+        +materialized: view
 
     staging: 
       +tags: staging
       +materialized: view
 
+    example:
+      +tags: test
+      +materialized: view
+      +enabled: false
+
+    legacy:
+      +enabled: false
+
 
 # on-run-start: "{{ generate_sequences() }}" 
 # on-run-end: "{{ generate_sequences() }}" 
 
-vars:  
-  # Global Variables : The variable will be accessible in all resources
-  # syntax : {{ var("d_def_value_date_future") }}
+vars:    # Global Variables : The variable will be accessible in all resources
+         # syntax : {{ var("d_def_value_date_future") }}
   'dbt_date:time_zone'      : 'Asia/Ho_Chi_Minh'
   v_xna                     : 'XNA'
   v_xap                     : 'XAP'
@@ -76,12 +86,13 @@ vars:
   v_flag_y                  : 'Y'
   v_flag_n                  : 'N'
   v_code_change_type_del    : 'D'
-  d_def_value_date_hist     : date'1000-01-01'
-  d_def_value_date_future   : date'3000-01-01'
-  high_timestamp            : date'3000-01-01 00:00:00'
   v_code_active             : 'a'
   v_code_due_status_y       : 'y'
   v_code_due_status_n       : 'n'
+  d_def_value_date_hist     : date'1000-01-01'
+  d_def_value_date_future   : date'3000-01-01'
+  d_high_timestamp          : date'3000-01-01 00:00:00'
+
 
 
 dispatch: # inject

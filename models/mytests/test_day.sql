@@ -1,5 +1,6 @@
 {{ config(
-      materialized = "view"
+      materialized = "view" 
+      , enable = "false"
 ) }}
 
 {% set now = modules.datetime.datetime.now().day %}
