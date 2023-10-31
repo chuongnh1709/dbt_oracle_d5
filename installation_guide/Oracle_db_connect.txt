@@ -1,0 +1,28 @@
+1/ Prepare profiles.yml for connection to specific platform (Example for Oracle connection)
+
+    dbt_oracle_d5:
+    target: "{{ env_var('DBT_TARGET', 'dev_d5') }}"
+
+    outputs:
+        dev_d5:
+            type: oracle
+            user: "{{ env_var('DBT_ORACLE_USER') }}"
+            pass: "{{ env_var('DBT_ORACLE_PASSWORD') }}"
+            protocol: "tcp"
+            host: "{{ env_var('DBT_ORACLE_HOST') }}"
+            port: 1521
+            service: "{{ env_var('DBT_ORACLE_SERVICE') }}"
+            database: "{{ env_var('DBT_ORACLE_DATABASE') }}"
+            schema: "{{ env_var('DBT_ORACLE_SCHEMA') }}"
+            retry_count: 1
+            retry_delay: 3
+            threads: 4
+
+2/ Set Environment variables in 
+    .dbtenv/Scripts/activate.bat (example)
+        set DBT_ORACLE_USER=aaa
+    or 
+    .dbtenv/Scripts/Activate.ps1 (example)
+        $Env:DBT_ORACLE_USER = "aaa"
+
+3/ Test connection using command : dbt debug 

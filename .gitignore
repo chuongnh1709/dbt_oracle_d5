@@ -3,9 +3,10 @@ target/
 dbt_packages/
 logs/
 .user.yml
-profiles.yml
-profiles_oracle.yml
 
+#profiles.yml
+profiles_oracle.yml
+profiles_BK.yml
 
 # Config files
 conf/.*
