@@ -28,19 +28,27 @@ sources:
     +enabled: true
 
 # Configuring models
-# Full documentation: https://docs.getdbt.com/docs/configuring-models
-
-# In this example config, we tell dbt to build all models in the example/
-# directory as views. These settings can be overridden in the individual model
-# files using the `{{ config(...) }}` macro.
 models: 
   dbt_oracle_d5:
+    doc:
+      +enabled: false
+    
+    example:
+      +enabled: false
+
+    staging: 
+      +tags: staging
+      +materialized: view
+
+    legacy:
+      +enabled: false
+
     marts:
       +materialized: table
       +on_schema_change: "append_new_columns"
       +meta:
         favorite_color: red
-      
+
       ldm_fin:
         +tags: ldm_fin
 
@@ -54,19 +62,6 @@ models:
       ldm_sbv_out:
         +tags: ldm_sbv_out
         +materialized: view
-
-    staging: 
-      +tags: staging
-      +materialized: view
-
-    example:
-      +tags: test
-      +materialized: view
-      +enabled: false
-
-    legacy:
-      +enabled: false
-
 
 # on-run-start: "{{ generate_sequences() }}" 
 # on-run-end: "{{ generate_sequences() }}" 
@@ -94,7 +89,6 @@ vars:    # Global Variables : The variable will be accessible in all resources
   d_high_timestamp          : date'3000-01-01 00:00:00'
 
 
-
-dispatch: # inject
+dispatch: # inject package
   - macro_namespace: dbt
     search_order: ['dbt_oracle_d5', 'my_snapshot_helpers', 'dbt']
