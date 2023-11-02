@@ -1,6 +1,7 @@
 {{ 
   config(
     materialized='view'
+    , grants = {'+select': ['LDM_FIN_ETL']}
     , parallel=4 
   ) 
 }}

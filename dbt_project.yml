@@ -45,17 +45,21 @@ models:
       +on_schema_change: "append_new_columns"
       +meta:
         favorite_color: red
-        
+
       doc:
         +enabled: false
 
       ldm_fin:
         +tags: ldm_fin
+        +grants:
+          select: ['LDM_FIN_ETL']
 
       ldm_fin_out:
         +tags: ldm_fin_out
         +materialized: view
-
+        +grants:
+          select: ['LDM_FIN_ETL']
+        
       ldm_sbv:
         +tags: ldm_sbv
 
