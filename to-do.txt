@@ -6,18 +6,57 @@
     - connection to oracle db /
     - add source (source table must be on DW) /
     - sample model /
-    
-    - sample dataflow : 
-        - migrate LDM_FIN_ETL.LIB_DCT_BI_LOYALTY_POINT
-        [ incremental ]
-        [ snapshot with default value for dbt_valid_to ] 
+    - docs serve - docs gen / 
 
-    - docs serve - docs gen 
+-- sprint 6 (doing)
+    - model parallel config     /
+    - grantable (config)        /
+    - truncate table (pre-hook) /
 
--- next sprint 
     - migrate 1 flow in dct_contract 
-    - 
+        - add source 
+        - incremental model 
+        - snapshot model 
 
 -- next sprint 
+    - unit test 
     - integrate dbt with airflow 
     - dbt_artifacts 
+    - masking on View based on role ?
+
+
+--------------------------------------------------------------------------
+-- PROJECT CONVENTION 
+--------------------------------------------------------------------------
+    - profiles.yml 
+        - phải được lưu bên ngoài thư mục repo , dùng biến : $Env:DBT_PROFILES_DIR = '...'  để chỉ vào file profiles.yml
+        
+        - Hoặc nếu để profile trong repo thì thông tin kết nối đc export từ biến môi trường, add vào trong file môi trường của .dbtenv/Scripts/
+    
+    - Temp table : nằm trong thư mục intermediate 
+        - cách đặt tên như cũ : STT, STM, STC (có pre-hook truncate), STP 
+    
+    - legacy : lưu thông tin code cũ đã/ đang migration để đối chiếu 
+
+    - data mart : 
+        - marts/<local_data_mart>/      : for model 
+        - marts/<local_data_mart>_out/   : for view 
+        - quy cách đặt tên dim, fact như cũ : dct, ft
+        - model schema sẽ có cùng tên với model 
+
+        - incremental model và snapshot model được đặt trong thư mục của data mart tương ứng 
+
+        - document 
+            - đc tổ chức theo CBL, trong thư mục doc , lưu markdown và data_flow diagram và 
+            - document được tham chiếu = doc block từ trong model_schema.yml
+
+    - source 
+        - định nghĩa trong thư mục staging 
+        - source bao gồm những table từ owner_dwh 
+        - hoặc những model từ project khác 
+            vd : ldm_fin reference model của ldm_cbe (project mesh chỉ support Cloud version)
+    
+    - function / procedure / sql hỗ trợ được đặt trong thư mục macros 
+
+
+--------------------------------------------------------------------------
