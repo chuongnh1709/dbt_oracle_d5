@@ -30,9 +30,6 @@ sources:
 # Configuring models
 models: 
   dbt_oracle_d5:
-    doc:
-      +enabled: false
-    
     example:
       +enabled: false
 
@@ -48,6 +45,9 @@ models:
       +on_schema_change: "append_new_columns"
       +meta:
         favorite_color: red
+        
+      doc:
+        +enabled: false
 
       ldm_fin:
         +tags: ldm_fin
