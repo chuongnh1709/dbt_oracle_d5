@@ -1,9 +1,6 @@
 {{ 
   config(
-    materialized='incremental'
-    , unique_key='c1'
-    , tags=["test", "ldm_fin"]
-    , pre_hook="{{ truncate_table('ldm_fin', this.table) }}"
+    materialized='view'
     , parallel=4 
   ) 
 }}

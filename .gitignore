@@ -5,8 +5,9 @@ logs/
 .user.yml
 
 #profiles.yml
-profiles_oracle.yml
-profiles_BK.yml
+profiles.yml
+profiles*.yml
+
 
 # Config files
 conf/.*
