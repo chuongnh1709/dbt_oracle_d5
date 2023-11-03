@@ -12,6 +12,7 @@
     - model parallel config     /
     - grantable (config)        /
     - truncate table (pre-hook) /
+    - logging for every step /model (post-hook)
 
     - migrate 1 flow in dct_contract 
         - add source 
@@ -22,6 +23,7 @@
     - unit test 
     - integrate dbt with airflow 
     - dbt_artifacts 
+    - semantic layer 
     - masking on View based on role ?
 
 
