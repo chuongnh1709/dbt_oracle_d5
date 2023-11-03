@@ -12,7 +12,9 @@
     - model parallel config     /
     - grantable (config)        /
     - truncate table (pre-hook) /
+
     - logging for every step /model (post-hook)
+    - handle exception in macros 
 
     - migrate 1 flow in dct_contract 
         - add source 
@@ -28,29 +30,34 @@
 
 
 --------------------------------------------------------------------------
--- PROJECT CONVENTION 
+-- DBT PROJECT CONVENTION 
 --------------------------------------------------------------------------
     - profiles.yml 
         - phải được lưu bên ngoài thư mục repo , dùng biến : $Env:DBT_PROFILES_DIR = '...'  để chỉ vào file profiles.yml
         
         - Hoặc nếu để profile trong repo thì thông tin kết nối đc export từ biến môi trường, add vào trong file môi trường của .dbtenv/Scripts/
-    
-    - Temp table : nằm trong thư mục intermediate 
-        - cách đặt tên như cũ : STT, STM, STC (có pre-hook truncate), STP 
-    
-    - legacy : lưu thông tin code cũ đã/ đang migration để đối chiếu 
+       
+    - thư mục legacy : lưu thông tin code cũ đã/ đang migration để đối chiếu 
 
-    - data mart : 
+    - data mart structure: 
         - marts/<local_data_mart>/      : for model 
-        - marts/<local_data_mart>_out/   : for view 
-        - quy cách đặt tên dim, fact như cũ : dct, ft
-        - model schema sẽ có cùng tên với model 
+        - marts/<local_data_mart>_out/  : for view 
+        - marts/<intermediate>/         : for temporary model (STM, STT, STC, STP)  
+        
+    - các bảng chính (DCT, FT) nằm trong thư mục data mart tương ứng vd ldm_sbv
+    - model schema sẽ có cùng tên với model (chỉ cần schema cho DCT, FT)
 
-        - incremental model và snapshot model được đặt trong thư mục của data mart tương ứng 
+    - các bảng STM, STC , STT       : có phần suffix là động từ bổ trợ cho bảng chính 
+        vd : DCT_CLIENT__MAP , DCT_CLIENT__DIFF, DCT_CLIENT__TEMP , DCT_CLIENT__PERMANENT_TEMP (STP) 
+    - các bảng temp hỗ trợ mapping, diff, temporary sẽ nằm trong thư mục intermediate với tên model được đặt theo quy tắc ở trên 
+    - trong các temp model phải có descript cho biết bảng Main table/model 
+    - không cần làm schema cho các bảng STM, STC, STT 
+    
+    - incremental model và snapshot model được đặt trong thư mục của data mart tương ứng 
 
-        - document 
-            - đc tổ chức theo CBL, trong thư mục doc , lưu markdown và data_flow diagram và 
-            - document được tham chiếu = doc block từ trong model_schema.yml
+    - document 
+        - đc tổ chức theo CBL, trong thư mục doc , lưu markdown và data_flow diagram và 
+        - document được tham chiếu = doc block từ trong model_schema.yml
 
     - source 
         - định nghĩa trong thư mục staging 
@@ -58,7 +65,6 @@
         - hoặc những model từ project khác 
             vd : ldm_fin reference model của ldm_cbe (project mesh chỉ support Cloud version)
     
-    - function / procedure / sql hỗ trợ được đặt trong thư mục macros 
-
+    - function / procedure / sql hỗ trợ được đặt trong thư mục macros và phải được document trong file schema.yml tương ứng 
 
 --------------------------------------------------------------------------

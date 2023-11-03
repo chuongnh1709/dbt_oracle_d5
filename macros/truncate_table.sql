@@ -1,3 +1,5 @@
+-- for Oracle 
+
 {% macro truncate_table(p_table_owner, p_table_name) %}
 
 {% set sql %}
@@ -6,7 +8,7 @@
 
 {% set now = modules.datetime.datetime.now() %}
 
-{% do log("[INFO] Sql statement : " ~ sql , info=True) %}
+{% do log("[INFO] Sql statement : " ~ sql ) %}
 
 {% do run_query(sql) %}
 

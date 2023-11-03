@@ -62,17 +62,22 @@ models:
         
       ldm_sbv:
         +tags: ldm_sbv
+        +grants:
+          select: ['LDM_SBV_ETL']
 
       ldm_sbv_out:
         +tags: ldm_sbv_out
         +materialized: view
+        +grants:
+          select: ['LDM_SBV_ETL']
 
 # on-run-start: "{{ generate_sequences() }}" 
-# on-run-end: "{{ generate_sequences() }}" 
+# on-run-end: 
 
 vars:    # Global Variables : The variable will be accessible in all resources
          # syntax : {{ var("d_def_value_date_future") }}
   'dbt_date:time_zone'      : 'Asia/Ho_Chi_Minh'
+  v_def_code_source_system  : 'SBV'
   v_xna                     : 'XNA'
   v_xap                     : 'XAP'
   n_minus_one               : -1
@@ -91,7 +96,8 @@ vars:    # Global Variables : The variable will be accessible in all resources
   d_def_value_date_hist     : date'1000-01-01'
   d_def_value_date_future   : date'3000-01-01'
   d_high_timestamp          : date'3000-01-01 00:00:00'
-
+  #p_effective_date          : {{ dbt_date.n_days_ago(1, tz="Asia/Ho_Chi_Minh")) }} # for BQ ? 
+  p_effective_date          : SYSDATE-1 # For Oracle 
 
 dispatch: # inject package
   - macro_namespace: dbt
