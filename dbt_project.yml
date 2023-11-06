@@ -99,6 +99,6 @@ vars:    # Global Variables : The variable will be accessible in all resources
   #p_effective_date          : {{ dbt_date.n_days_ago(1, tz="Asia/Ho_Chi_Minh")) }} # for BQ ? 
   p_effective_date          : SYSDATE-1 # For Oracle 
 
-dispatch: # inject package
-  - macro_namespace: dbt
-    search_order: ['dbt_oracle_d5', 'my_snapshot_helpers', 'dbt']
+# dispatch: # inject package
+#   - macro_namespace: dbt
+#     search_order: ['dbt_oracle_d5', 'my_snapshot_helpers', 'dbt']

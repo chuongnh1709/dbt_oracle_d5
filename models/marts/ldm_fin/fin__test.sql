@@ -1,3 +1,4 @@
+-- config 
 {{ 
   config(
     materialized='incremental'
@@ -8,9 +9,12 @@
   ) 
 }}
 
--- sql 
+-- table definition 
+
+
+-- model query  
 select /*+ parallel (2)*/ 
-  123 c1
+    99 c1
   , sysdate c2  
   , {{ var("p_effective_date") }}  as last_day
 from dual

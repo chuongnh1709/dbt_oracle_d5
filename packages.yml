@@ -7,7 +7,7 @@ packages:
     version: 1.1.1
 
   - package: calogica/dbt_date
-    version: 0.9.2
+    version: 0.10.0
     
 #  - package: Snowflake-Labs/dbt_constraints
 #    version: 0.6.1

@@ -9,6 +9,7 @@
 {% set now = modules.datetime.datetime.now() %}
 
 {% do log("[INFO] Sql statement : " ~ sql ) %}
+{{dbt_utils.log_info('[LOG-INFO] Sql statement :'~ sql )}}
 
 {% do run_query(sql) %}
 

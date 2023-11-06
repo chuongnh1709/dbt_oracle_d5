@@ -15,6 +15,7 @@
 
     - logging for every step /model (post-hook)
     - handle exception in macros 
+        - trường hợp truncate bảng ko tồn tại 
 
     - migrate 1 flow in dct_contract 
         - add source 
@@ -30,7 +31,7 @@
 
 
 --------------------------------------------------------------------------
--- DBT PROJECT CONVENTION 
+-- DBT PROJECT CONVENTION -- wait for update document 
 --------------------------------------------------------------------------
     - profiles.yml 
         - phải được lưu bên ngoài thư mục repo , dùng biến : $Env:DBT_PROFILES_DIR = '...'  để chỉ vào file profiles.yml
@@ -42,29 +43,26 @@
     - data mart structure: 
         - marts/<local_data_mart>/      : for model 
         - marts/<local_data_mart>_out/  : for view 
-        - marts/<intermediate>/         : for temporary model (STM, STT, STC, STP)  
+        - marts/<intermediate>/         : for temporary model (STM, STT, STC, STP)
         
     - các bảng chính (DCT, FT) nằm trong thư mục data mart tương ứng vd ldm_sbv
-    - model schema sẽ có cùng tên với model (chỉ cần schema cho DCT, FT)
+    - model schema sẽ có cùng tên với model vd : dct_product.yml
 
     - các bảng STM, STC , STT       : có phần suffix là động từ bổ trợ cho bảng chính 
         vd : DCT_CLIENT__MAP , DCT_CLIENT__DIFF, DCT_CLIENT__TEMP , DCT_CLIENT__PERMANENT_TEMP (STP) 
     - các bảng temp hỗ trợ mapping, diff, temporary sẽ nằm trong thư mục intermediate với tên model được đặt theo quy tắc ở trên 
-    - trong các temp model phải có descript cho biết bảng Main table/model 
-    - không cần làm schema cho các bảng STM, STC, STT 
     
-    - incremental model và snapshot model được đặt trong thư mục của data mart tương ứng 
+    - không cần làm schema cho các bảng STM, STC, STT 
 
     - document 
         - đc tổ chức theo CBL, trong thư mục doc , lưu markdown và data_flow diagram và 
         - document được tham chiếu = doc block từ trong model_schema.yml
 
     - source 
-        - định nghĩa trong thư mục staging 
-        - source bao gồm những table từ owner_dwh 
-        - hoặc những model từ project khác 
-            vd : ldm_fin reference model của ldm_cbe (project mesh chỉ support Cloud version)
-    
+        - định nghĩa trong thư mục staging nếu dùng source từ layer interface(owner_int, onwer_hub)
+        - định nghĩa trong thư mục data mart nếu dùng source tham chiếu đển model của 1 project khác vd : ldm_fin reference model của ldm_cbe (project mesh chỉ support Cloud version)
+
     - function / procedure / sql hỗ trợ được đặt trong thư mục macros và phải được document trong file schema.yml tương ứng 
 
+    - format tổ chức của 1 model 
 --------------------------------------------------------------------------
