@@ -1,11 +1,42 @@
 Welcome to your new dbt project!
 
+
 ### Using the starter project
 
 Try running the following commands:
 - dbt run
 - dbt test
 
+### Some DBT PROJECT CONVENTION
+- profiles.yml:
+    - Nên lưu bên ngoài thư mục repo 
+    - Hoặc nếu để profile trong repo thì thông tin kết nối được export từ biến môi trường dùng biến : $Env:DBT_PROFILES_DIR = '...', add vào trong file môi trường của .dbtenv/Scripts/
+
+- Thư mục legacy : lưu thông tin code cũ đã/ đang migration để đối chiếu 
+
+- Data mart structure: 
+    - marts/<local_data_mart>/      : for model 
+    - marts/<local_data_mart>_out/  : for view 
+    - marts/<intermediate>/         : for temporary model (STM, STT, STC, STP)
+        
+- Tên Model phải là duy nhất trên toàn project 
+
+- Model schema sẽ có cùng tên với model vd : dct_product.yml
+
+- Các bảng STM, STC , STT       : có phần suffix là động từ bổ trợ cho bảng chính 
+    vd : DCT_CLIENT__MAP , DCT_CLIENT__DIFF, DCT_CLIENT__TEMP , DCT_CLIENT__PERMANENT_TEMP (STP) 
+- Các bảng temp hỗ trợ mapping, diff, temporary sẽ nằm trong thư mục intermediate với tên model được đặt theo quy tắc ở trên 
+
+- Không cần làm schema cho các bảng STM, STC, STT 
+
+- Model cần phải có tối thiểu 2 tag: 
+    - chu kỳ chạy : monthly, daily 
+    - tên của model phụ thuộc chính : dct_client, dct_contract 
+    - ex : tags : [weekly, dct_contract]
+
+- Document 
+    - Được tổ chức theo CBL, trong thư mục doc , lưu markdown và data_flow diagram
+    - document được tham chiếu = doc block từ trong model_schema.yml
 
 ### Resources:
 - Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)

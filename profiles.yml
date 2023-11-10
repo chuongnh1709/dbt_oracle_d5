@@ -14,3 +14,15 @@ dbt_oracle_d5:
       schema: LDM_FIN
       service: VN00D5HD.CZ.INFRA
       threads: 4
+
+    dev_a1:
+      type: oracle
+      host: DBVN00A1HD.CZ.INFRA
+      user: appdeploy
+      password: VN00A1HD
+      port: 1521
+      protocol: tcp
+      database: VN00A1HD
+      schema: LDM_FIN
+      service: VN00A1HD.CZ.INFRA
+      threads: 4
