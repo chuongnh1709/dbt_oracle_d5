@@ -5,7 +5,7 @@ version: '1.0.0'
 config-version: 2
 
 # This setting configures which "profile" dbt uses for this project.
-profile: 'dbt_oracle_d5'
+profile: dbt_oracle_d5
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
@@ -24,7 +24,7 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 sources:  
-  dbt_oracle_d5:  
+  dbt_oracle_d5:
     +enabled: true
 
 # Configuring models
@@ -97,7 +97,7 @@ vars:    # Global Variables : The variable will be accessible in all resources
   d_def_value_date_future   : date'3000-01-01'
   d_high_timestamp          : date'3000-01-01 00:00:00'
   #p_effective_date          : {{ dbt_date.n_days_ago(1, tz="Asia/Ho_Chi_Minh")) }} # for BQ ? 
-  p_effective_date          : SYSDATE-1 # For Oracle 
+  p_effective_date          : trunc(SYSDATE-1) # For Oracle 
 
 # dispatch: # inject package
 #   - macro_namespace: dbt

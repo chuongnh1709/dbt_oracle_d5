@@ -14,7 +14,12 @@
   ) 
 }}
 
--- sql 
+---------------------------------------------------------
+-- -- WF : LDM_SBV_ETL.LIB_DCT_CLIENT
+    -- dim_client_map_sbv  -> dim_client_load_sbv -> dim_client_late_map_sbv -> dim_client_load_sbv
+---------------------------------------------------------
+-- Map 
+-- combine dim_client_map_sbv and dim_client_late_map_sbv
 SELECT
   NULL                                                    AS skp_client,
   v_hom_code_source_system                                AS code_source_system,
@@ -37,5 +42,5 @@ FROM(
     FROM owner_int.in_hom_client client
     WHERE client.code_load_status IN ('OK', 'LOAD')
         AND client.code_change_type IN ('X', 'I', 'U', 'D', 'M', 'N')
-        AND client.date_effective_inserted = '{{ var("p_effective_date") }}' 
+        AND client.date_effective_inserted >= '{{ var("p_effective_date") }}' 
       ) i

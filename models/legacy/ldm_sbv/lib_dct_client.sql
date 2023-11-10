@@ -74,19 +74,19 @@ CREATE OR REPLACE PACKAGE BODY LDM_SBV_ETL.LIB_DCT_CLIENT IS
 				, ID_CUID
 	  )
 	select
-                     NULL 															AS SKP_CLIENT,
-                     v_hom_code_source_system 										AS CODE_SOURCE_SYSTEM,
-                     i.ID_SOURCE 													AS ID_SOURCE,
-					 p_effective_date 												AS DATE_EFFECTIVE,
-                     p_process_key 													AS skp_proc_inserted,
-                     p_process_key  												AS skp_proc_updated,
-					 sysdate														AS DTIME_INSERTED,
-					 sysdate 														AS DTIME_UPDATED,
-					 CASE
-						WHEN i.CODE_CHANGE_TYPE = V_CODE_CHANGE_TYPE_DEL
-						THEN V_FLAG_Y
-						ELSE V_FLAG_N END 											AS FLAG_DELETED,
-                     NVL(i.CUID,  n_minus_one ) 									as ID_CUID
+        NULL 															AS SKP_CLIENT,
+        v_hom_code_source_system 										AS CODE_SOURCE_SYSTEM,
+        i.ID_SOURCE 													AS ID_SOURCE,
+        p_effective_date 												AS DATE_EFFECTIVE,
+        p_process_key 													AS skp_proc_inserted,
+        p_process_key  												AS skp_proc_updated,
+        sysdate														AS DTIME_INSERTED,
+        sysdate 														AS DTIME_UPDATED,
+        CASE
+        WHEN i.CODE_CHANGE_TYPE = V_CODE_CHANGE_TYPE_DEL
+        THEN V_FLAG_Y
+        ELSE V_FLAG_N END 											AS FLAG_DELETED,
+        NVL(i.CUID,  n_minus_one ) 									as ID_CUID
 	from(
 			select
                      to_char(client.id) 									AS ID_SOURCE,
