@@ -40,6 +40,12 @@ models:
     legacy:
       +enabled: false
 
+    99_datafix:
+      +enabled: false
+
+    03_#incremental:
+      +enabled: false
+
     marts:
       +materialized: table
       +on_schema_change: "append_new_columns"

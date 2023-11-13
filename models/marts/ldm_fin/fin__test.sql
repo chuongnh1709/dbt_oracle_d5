@@ -9,9 +9,6 @@
   ) 
 }}
 
--- table definition 
-
-
 -- model query  
 select /*+ parallel (2)*/ 
     99 c1
@@ -22,3 +19,6 @@ from dual
 {% if is_incremental() %}
   where 1=1
 {% endif %}
+
+
+

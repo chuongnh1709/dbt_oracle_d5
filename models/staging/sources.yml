@@ -6,6 +6,13 @@ sources:
     config:
       enabled: true
     schema: ldm_sbv
-
     tables:
       - name: clt_adld_newband
+
+  - name: owner_int
+    config:
+      enabled: true
+    schema: owner_int
+
+    tables:
+      - name: in_hom_client
