@@ -13,6 +13,5 @@ sources:
     config:
       enabled: true
     schema: owner_int
-
     tables:
-      - name: in_hom_client
+      - name: in_hom_client # view/table have to granted to ldm_fin/ldm_sbv in advance

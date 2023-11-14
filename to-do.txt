@@ -14,7 +14,10 @@
     - truncate table (pre-hook)     /
 
     - logging for every step / model (post-hook) ??? --> có thể dùng lệnh insert log trước --# doing 
-    - upload ddl script của bảng vào 03#_incremental để chạy CI/CD sau này (tạo bảng)
+        --> viết macro ghi log (sequence, tên model, start_time, end_time, duration)
+
+    - upload ddl script của bảng vào 03#_incremental để chạy CI/CD sau này (tạo bảng) /  (xem xét có cần ko )
+        - Có set đc index, partition trong model không 
 
     - handle exception in macros   /
         - trường hợp truncate bảng ko tồn tại --> thêm sql check bảng có tồn tại vào macro truncate --> cho model lỗi luôn 
@@ -31,47 +34,27 @@
     - masking on View based on role ???
     - semantic layer 
     
-
-
 --------------------------------------------------------------------------
--- DBT PROJECT CONVENTION -- Chuyển thanh Markdown 
---------------------------------------------------------------------------
-    - profiles.yml 
-        - Nên lưu bên ngoài thư mục repo 
-        
-        - Hoặc nếu để profile trong repo thì thông tin kết nối được export từ biến môi trường
-            dùng biến : $Env:DBT_PROFILES_DIR = '...', add vào trong file môi trường của .dbtenv/Scripts/
-       
-    - thư mục legacy : lưu thông tin code cũ đã/ đang migration để đối chiếu 
+---- macro Logging 
 
-    - data mart structure: 
-        - marts/<local_data_mart>/      : for model 
-        - marts/<local_data_mart>_out/  : for view 
-        - marts/<intermediate>/         : for temporary model (STM, STT, STC, STP)
-        
-    - tên model phải là duy nhất trên toàn project 
-    
-    - model schema sẽ có cùng tên với model vd : dct_product.yml
+-- table ldm_sbv_job_log 
+p_process_key   
+object_name / c_mapping
+object_type /
+log_status  : running -> completed
+sql_code
+start_time
+end_time
+duration / function_based column 
+-- trigger 
+    - dtime_insert
+    - inserted_by
+    - dtime_update
+    - updated_by
 
-    - các bảng STM, STC , STT       : có phần suffix là động từ bổ trợ cho bảng chính 
-        vd : DCT_CLIENT__MAP , DCT_CLIENT__DIFF, DCT_CLIENT__TEMP , DCT_CLIENT__PERMANENT_TEMP (STP) 
-    - các bảng temp hỗ trợ mapping, diff, temporary sẽ nằm trong thư mục intermediate với tên model được đặt theo quy tắc ở trên 
-    
-    - không cần làm schema cho các bảng STM, STC, STT 
-    
-    - model cần phải có tối thiểu 2 tag: 
-        - chu kỳ chạy : monthly, daily 
-        - tên của model phụ thuộc chính : dct_client, dct_contract 
-        - ex : tags : [weekly, dct_contract]
-
-    - document 
-        - đc tổ chức theo CBL, trong thư mục doc , lưu markdown và data_flow diagram
-        - document được tham chiếu = doc block từ trong model_schema.yml
-
-    - source 
-        - định nghĩa trong thư mục staging nếu dùng source từ layer interface(owner_int, onwer_hub)
-        - định nghĩa trong thư mục data mart nếu dùng source tham chiếu đển model của 1 project khác vd : ldm_fin reference model của ldm_cbe (project mesh chỉ support Cloud version)
-
-    - function / procedure / sql hỗ trợ được đặt trong thư mục macros và phải được document trong file schema.yml tương ứng 
+-- macros count row 
+    - simple way : dùng macro nhưng chỉ count đc bảng mapping 
+    - dùng audit_helper : https://docs.getdbt.com/blog/audit-helper-for-migration
+        - so sánh model map và model load (2 query)
 
 --------------------------------------------------------------------------

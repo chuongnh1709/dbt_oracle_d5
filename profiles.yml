@@ -30,3 +30,17 @@ dbt_oracle_d5:
          retry_count: 1
          retry_delay: 3
          threads: 4
+      
+      dev_d5_sbv:
+         type: oracle
+         user: "{{ env_var('DBT_ENV_SECRET_ORACLE_USER') }}"  
+         pass: "{{ env_var('DBT_ENV_SECRET_ORACLE_PASSWORD_D5') }}"
+         protocol: "tcp"
+         host: "{{ env_var('DBT_ENV_SECRET_ORACLE_HOST_D5') }}"
+         port: 1521
+         service: "{{ env_var('DBT_ENV_SECRET_ORACLE_SERVICE_D5') }}"
+         database: "{{ env_var('DBT_ENV_SECRET_ORACLE_DATABASE_D5') }}"
+         schema: "{{ env_var('ORACLE_SCHEMA_SBV') }}"
+         retry_count: 1
+         retry_delay: 3
+         threads: 4

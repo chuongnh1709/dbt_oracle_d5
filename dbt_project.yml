@@ -46,6 +46,9 @@ models:
     03_#incremental:
       +enabled: false
 
+    05_repeatable_grants:
+      +enabled: false
+
     marts:
       +materialized: table
       +on_schema_change: "append_new_columns"
