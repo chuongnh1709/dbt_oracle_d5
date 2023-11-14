@@ -15,3 +15,10 @@ sources:
     schema: owner_int
     tables:
       - name: in_hom_client # view/table have to granted to ldm_fin/ldm_sbv in advance
+
+  - name: ldm_fin
+    config:
+      enabled: true
+    schema: ldm_fin
+    tables:
+      - name: t1  # view/table have to granted to ldm_fin/ldm_sbv in advance
