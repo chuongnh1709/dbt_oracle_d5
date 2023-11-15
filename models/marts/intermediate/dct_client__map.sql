@@ -12,12 +12,6 @@
   ) 
 }}
 
-/*
-  -- WF : LDM_SBV_ETL.LIB_DCT_CLIENT
-  -- dim_client_map_sbv  -> dim_client_load_sbv -> dim_client_late_map_sbv -> dim_client_load_sbv
-  -- combine dim_client_map_sbv and dim_client_late_map_sbv
-*/
-
 {%- set v_hom_code_source_system = 'HOM' %}
 
 SELECT
