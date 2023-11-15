@@ -21,4 +21,4 @@ sources:
       enabled: true
     schema: ldm_fin
     tables:
-      - name: t1  # view/table have to granted to ldm_fin/ldm_sbv in advance
+      - name: t1 

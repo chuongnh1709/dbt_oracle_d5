@@ -49,27 +49,22 @@ models:
     05_repeatable_grants:
       +enabled: false
 
+    doc:
+      +enabled: false
+
+# Data Mart Configure 
     marts:
-      +materialized: table
-      +on_schema_change: "append_new_columns"
       +meta:
         favorite_color: red
 
-      doc:
-        +enabled: false
-
-      ldm_fin:
-        +tags: ldm_fin
-        +grants:
-          select: ['LDM_FIN_ETL']
-
-      ldm_fin_out:
-        +tags: ldm_fin_out
+      intermediate:
         +materialized: view
+        +tags: intermediate
         +grants:
-          select: ['LDM_FIN_ETL']
-        
+          select: ['LDM_SBV_ETL','LDM_FIN_ETL','LDM_FIN','LDM_SBV']
+
       ldm_sbv:
+        +materialized: incremental 
         +tags: ldm_sbv
         +grants:
           select: ['LDM_SBV_ETL']
@@ -79,6 +74,18 @@ models:
         +materialized: view
         +grants:
           select: ['LDM_SBV_ETL']
+      
+      ldm_fin:
+        +materialized: incremental 
+        +tags: ldm_fin
+        +grants:
+          select: ['LDM_FIN_ETL']
+
+      ldm_fin_out:
+        +tags: ldm_fin_out
+        +materialized: view
+        +grants:
+          select: ['LDM_FIN_ETL']
 
 # on-run-start: "{{ generate_sequences() }}" 
 # on-run-end: 
@@ -98,7 +105,7 @@ vars:    # Global Variables : The variable will be accessible in all resources
   v_flag_x                  : 'X'
   v_flag_y                  : 'Y'
   v_flag_n                  : 'N'
-  v_code_change_type_del    : 'D'
+  v_code_change_type_del    : "D"
   v_code_active             : 'a'
   v_code_due_status_y       : 'y'
   v_code_due_status_n       : 'n'

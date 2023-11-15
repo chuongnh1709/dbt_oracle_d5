@@ -3,6 +3,7 @@
     materialized='view'
     , grants = {'+select': ['LDM_CBE_ETL']}
     , parallel=4 
+    , enabled = false
   ) 
 }}
 

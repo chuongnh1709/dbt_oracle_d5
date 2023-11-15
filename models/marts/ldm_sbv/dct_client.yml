@@ -2,8 +2,13 @@ version: 2
 
 models:
   - name: dct_client
-    description: List of Client load from owner_int.in_hom_client
+    description: List of Client load from owner_int.in_hom_client 
+    description: '{{ doc("vndw_559") }}'
     materialized: table
+    enabled: true
+    meta:
+      created_by: "@chuong.nguyenh2"
+      created_at: "15-Nov-2023"
     configs:
       tags:
         - daily
@@ -47,6 +52,7 @@ models:
   - name: dct_client__map
     description: dct_client mapping
     materialized: table
+    enabled: true
     configs:
       tags:
         - daily

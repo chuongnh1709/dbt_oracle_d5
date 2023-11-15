@@ -4,7 +4,7 @@
   ) 
 }}
 
-{{ log("[INFO] Building : " ~ this , info=True ) }}
+/*{{ log("[INFO] Building : " ~ this , info=True ) }}*/
 
 -- sql 
   select 

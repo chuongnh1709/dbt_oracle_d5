@@ -3,6 +3,7 @@
     materialized='view'
   ) 
 }}
+-- Error 'table does not exists' --> ok now 
     select
         {{ adapter.quote("CODE_SOURCE_SYSTEM") }},
         {{ adapter.quote("DATE_EFFECTIVE_INSERTED") }},
@@ -18,3 +19,4 @@
         {{ adapter.quote("SK_PROC_INSERTED") }}
 
     from {{ source('owner_int', 'in_hom_client') }}
+    where rownum < 10 

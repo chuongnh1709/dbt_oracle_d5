@@ -1,3 +1,4 @@
+-- the model can be created Successfull 
 with source as (
       select * from {{ source('ldm_fin', 't1') }}
 ),

@@ -17,7 +17,7 @@
 }}
 
 SELECT
-    skp_client
+    ldm_fin.s_dct_client.nextval as skp_client
   , code_source_system
   , id_source
   , date_effective

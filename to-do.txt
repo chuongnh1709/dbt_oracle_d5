@@ -36,6 +36,9 @@
     
 --------------------------------------------------------------------------
 ---- macro Logging 
+- dùng pre_hook và post_hook để ghi log 
+pre_hook = [ " DELETE FROM {{ source(‘myWIsource’, ‘Employees’) }} where employee_di = empDelId"
+
 
 -- table ldm_sbv_job_log 
 p_process_key   
