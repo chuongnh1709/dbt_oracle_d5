@@ -1,31 +1,21 @@
--- sprint 5 
-    - dbt-101 con't 
-
-    - Install dbt-oracle /
-    - target and multiple target / 
-    - connection to oracle db /
-    - add source (source table must be on DW) /
-    - sample model /
-    - docs serve - docs gen / 
 
 -- sprint 6 (doing)
     - model parallel config         /
     - grantable select  (config)        /
     - truncate table (pre-hook)     /
 
-    - logging for every step / model (post-hook) ??? --> có thể dùng lệnh insert log trước --# doing 
-        --> viết macro ghi log (sequence, tên model, start_time, end_time, duration)
-
     - upload ddl script của bảng vào 03#_incremental để chạy CI/CD sau này (tạo bảng) /  (xem xét có cần ko )
-        - Có set đc index, partition trong model không 
+        - Có set đc index, partition trong model không  --> dbt ko hỗ trợ, phải tự tạo trong 03#_incremental    /
 
-    - handle exception in macros   /
+    - handle exception in macros  
         - trường hợp truncate bảng ko tồn tại --> thêm sql check bảng có tồn tại vào macro truncate --> cho model lỗi luôn 
 
+    - ghi log for every model  : pre_hook ; post_hook (dml / macro )
+
     - migrate dct_client
-        - add source 
-        - incremental model 
-        - snapshot model 
+        - add source                /
+        - incremental model         /
+        - snapshot model        
 
 -- next sprint 
     - unit test 
