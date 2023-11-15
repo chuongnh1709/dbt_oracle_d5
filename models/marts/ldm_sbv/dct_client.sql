@@ -11,8 +11,7 @@
       materialized='incremental'
     , parallel=4 
     , unique_key='id_source'
-    , merge_update_columns = ['date_effective', 'skp_proc_updated','dtime_updated','flag_deleted','id_cuid']
-    , on_schema_change = 'fail'
+    , merge_update_columns = ['date_effective', 'dtime_updated','flag_deleted','id_cuid']
   ) 
 }}
 
@@ -27,7 +26,10 @@ SELECT
   , id_cuid
 FROM {{ ref('dct_client__map') }}
 {% if is_incremental() %}
-WHERE date_effective >=(select max(date_effective) from {{ this }} )
+WHERE date_effective >=(
+      select nvl(max(date_effective), {{ var("d_def_value_date_hist") }} ) 
+      from {{ this }} 
+      )
 -- or where not required
 {% endif %}
 

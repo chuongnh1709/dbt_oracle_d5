@@ -17,6 +17,10 @@
         - incremental model         /
         - snapshot model        
 
+        - sửa script -> tạo bảng, sequence  (sbv_dct_client) -> Run model -> check data 
+
+        - hoàn thiện doc.md cho dct_client 
+--------------------------------------------------------------------------
 -- next sprint 
     - unit test 
     - integrate dbt with airflow 
@@ -27,7 +31,7 @@
 --------------------------------------------------------------------------
 ---- macro Logging 
 - dùng pre_hook và post_hook để ghi log 
-pre_hook = [ " DELETE FROM {{ source(‘myWIsource’, ‘Employees’) }} where employee_di = empDelId"
+pre_hook = [ " DELETE FROM {{ source(‘myWIsource’, ‘Employees’) }} where employee_di = empDelId" ]
 
 
 -- table ldm_sbv_job_log 

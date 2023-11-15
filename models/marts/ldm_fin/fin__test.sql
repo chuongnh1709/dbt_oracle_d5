@@ -15,7 +15,7 @@
     , unique_key='c1'
     , tags=["test", "ldm_fin"]
     , parallel=2
-    , post_hook="{{ count_table() }}"
+    , post_hook=["{{ count_table() }}" ,"{{ count_table() }}"]
 
   ) 
 }}

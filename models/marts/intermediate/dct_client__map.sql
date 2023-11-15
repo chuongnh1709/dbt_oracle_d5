@@ -15,7 +15,7 @@
 {%- set v_hom_code_source_system = 'HOM' %}
 
 SELECT
-    --ldm_fin.s_dct_client.nextval                           as skp_client ,   --  sequence number not allowed here
+    --ldm_fin.s_dct_client.nextval                           as skp_client ,   --  sequence not allowed inside subquery
      NULL                                                   as skp_client 
   , '{{v_hom_code_source_system}}'                          as code_source_system
   , to_char(client.id)                                      as id_source
