@@ -1,6 +1,6 @@
 -- for Oracle 
 
-{% macro truncate_table_v2(p_table_owner, p_table_name) %}
+{% macro truncate_table_v2_bk(p_table_owner, p_table_name) %}
 
 -- declare
 {% set truncate_sql %}

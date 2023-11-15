@@ -33,9 +33,8 @@
 - dùng pre_hook và post_hook để ghi log 
 pre_hook = [ " DELETE FROM {{ source(‘myWIsource’, ‘Employees’) }} where employee_di = empDelId" ]
 
-
 -- table ldm_sbv_job_log 
-p_process_key   
+p_process_key 
 object_name / c_mapping
 object_type /
 log_status  : running -> completed

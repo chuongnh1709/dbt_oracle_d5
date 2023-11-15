@@ -1,5 +1,4 @@
-# Name your project! Project names should contain only lowercase characters
-# and underscores. 
+# Name your project! Project names should contain only lowercase characters and underscores. 
 name: 'dbt_oracle_d5'
 version: '1.0.0'
 config-version: 2
@@ -16,13 +15,15 @@ test-paths: ["tests"]
 seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
-target-path: "target"  # directory which will store compiled SQL files
+target-path: "target" 
 log-path: "logs"
 packages-install-path: "dbt_packages"  # install using : dbt deps
+
 clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
+# Configuring sources
 sources:  
   dbt_oracle_d5:
     +enabled: true
@@ -87,11 +88,11 @@ models:
         +grants:
           select: ['LDM_FIN_ETL']
 
-# on-run-start: "{{ generate_sequences() }}" 
-# on-run-end: 
+# on-run-start: "{{ macro1() }}" 
+# on-run-end: "{{ macro2() }}" 
 
-vars:    # Global Variables : The variable will be accessible in all resources
-         # syntax : {{ var("d_def_value_date_hist") }}
+# Global Variables : The variable will be accessible in all resources
+vars:   # syntax : {{ var("d_def_value_date_hist") }}
   'dbt_date:time_zone'      : 'Asia/Ho_Chi_Minh'
   v_def_code_source_system  : 'SBV'
   v_xna                     : 'XNA'
@@ -105,7 +106,7 @@ vars:    # Global Variables : The variable will be accessible in all resources
   v_flag_x                  : 'X'
   v_flag_y                  : 'Y'
   v_flag_n                  : 'N'
-  v_code_change_type_del    : "D"
+  v_code_change_type_del    : 'D'
   v_code_active             : 'a'
   v_code_due_status_y       : 'y'
   v_code_due_status_n       : 'n'
