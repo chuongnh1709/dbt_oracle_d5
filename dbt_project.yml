@@ -31,30 +31,38 @@ sources:
 # Configuring models
 models: 
   dbt_oracle_d5:
+    elementary:
+      +schema: "elementary"
+
     example:
       +enabled: false
 
-    staging: 
+    legacy:               # legacy code 
+      +enabled: false
+
+    99_datafix:           # init load or longops sql
+      +enabled: false
+
+    03_#incremental:      # table and other objects script (DDL)
+      +enabled: false
+
+    04_repeatable:        # database proceudre, function , package 
+    +enabled: false
+
+    05_repeatable_grants: # sql for granting privilege 
+      +enabled: false
+
+    doc:                  # documentation 
+      +enabled: false
+
+    staging:              # source and base model configure 
+      +enabled: true
       +tags: staging
       +materialized: view
 
-    legacy:
-      +enabled: false
-
-    99_datafix:
-      +enabled: false
-
-    03_#incremental:
-      +enabled: false
-
-    05_repeatable_grants:
-      +enabled: false
-
-    doc:
-      +enabled: false
-
 # Data Mart Configure 
     marts:
+      +enabled: true
       +meta:
         favorite_color: red
 
