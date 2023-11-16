@@ -9,14 +9,17 @@
   {% endset %}
 
   {% set resultado = run_query(query) %}
+  
+  {# [comment] print table object #}
+  {{ log('\n[Table object ] \n' ~ resultado , info=True) }}
 
-  -- get data from specific row of column 1 
+  {# [comment] get data from specific row of column 1  #}
   {% set item_col_1 = resultado.columns[0].values() %}  -- get column 1 --> return tuple  (1, 2)
   
   {% set item = resultado.columns[0].values()[0] %}  -- get column 1, row 1 
   {% set item = resultado.columns[0].values()[1] %}  -- get column 1, row 2 
 
-  {% if item == 2 %}  -- 2==2
+  {% if item == 2 %}
       {{ log('[YES] ' ~ item ~ '-' ~ item_col_1 , info=True) }}
 
   {% else %}
@@ -25,7 +28,7 @@
 
 {% endif %}
 
--- iterate all row for column 1 
+{# [comment] iterate all row for column 1  #}
 {{ log('[For loop ] ' , info=True) }}
 {% for i in item_col_1 %}
   {% if i == 2 %}  

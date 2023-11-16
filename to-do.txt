@@ -1,3 +1,8 @@
+-- Resource : 
+    python jinja template : https://realpython.com/primer-on-jinja-templating/#get-started-with-jinja
+    
+--------------------------------------------------------------------------
+
 
 -- sprint 6 (doing)
     - model parallel config         /

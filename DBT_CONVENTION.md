@@ -49,6 +49,12 @@ Try running the following commands:
     - Được tổ chức theo CBL, trong thư mục doc , lưu markdown và data_flow diagram
     - document được tham chiếu = doc block từ trong model_schema.yml
 
+- Comment in Jinja :
+    {# [comment] this COMMENT not display when compiled #}
+    -- this line still display when dbt compile. While above line will not 
+
+    - Prefix [comment] need to be at begin of line for distinguish
+
 ### Resources:
 - Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
 - Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers

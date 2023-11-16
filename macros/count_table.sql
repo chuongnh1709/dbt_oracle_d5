@@ -7,7 +7,7 @@
 {% set results = run_query(count_query) %}
 
 {% if execute %}
-  {# Return the first column #}
+  {# [comment] Return the first column #}
   {% set results_list = results.columns[0].values() %}
   {{ log('Counting row for '~ this , True) }}
   {{ log(modules.datetime.datetime.now().strftime('%H:%M:%S') ~ ' | Number of rows : '~ results_list , True) }}
