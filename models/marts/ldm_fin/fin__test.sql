@@ -1,14 +1,4 @@
 -- config 
-/*
-, pre_hook="{{ truncate_table('ldm_fin', this.table) }}"
-
- , indexes=[
-        {'columns': ['c1'], 'unique': True},
-        {'columns': ['c1', 'c2']}
-    ]
-        , post_hook="{{ count_table() }}"
-
-*/
 {{ 
   config(
       materialized='incremental'

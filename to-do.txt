@@ -2,8 +2,6 @@
     python jinja template : https://realpython.com/primer-on-jinja-templating/#get-started-with-jinja
     
 --------------------------------------------------------------------------
-
-
 -- sprint 6 (doing)
     - model parallel config         /
     - grantable select  (config)        /
@@ -13,18 +11,22 @@
         - Có set đc index, partition trong model không  --> dbt ko hỗ trợ, phải tự tạo trong 03#_incremental    /
 
     - handle exception in macros  
-        - trường hợp truncate bảng ko tồn tại --> thêm sql check bảng có tồn tại vào macro truncate --> cho model lỗi luôn 
+        - trường hợp truncate bảng ko tồn tại --> thêm sql check bảng có tồn tại vào macro truncate --> cho model lỗi luôn  /
+
 
     - ghi log for every model  : pre_hook ; post_hook (dml / macro )
+        - lần chạy tới data lớn hơn độ rộng cột ?
+        - lần chạy tới thiếu 1 cột (do đổi câu query)
 
     - migrate dct_client
         - add source                /
         - incremental model         /
         - snapshot model        
 
-        - sửa script -> tạo bảng, sequence  (sbv_dct_client) -> Run model -> check data 
-
+        - sửa script -> tạo bảng, sequence  (sbv_dct_client) -> Run model -> check data  
         - hoàn thiện doc.md cho dct_client 
+        - chạy trên Prod schema cá nhân  ? 
+        
 --------------------------------------------------------------------------
 -- next sprint 
     - unit test 

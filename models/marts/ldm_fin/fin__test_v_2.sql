@@ -4,13 +4,16 @@
   ) 
 }}
 
-/*{{ _log("[INFO] Building : " ~ this , info=True ) }}*/
+{{ log("[INFO] Building : " ~ this , info=True ) }}
 
--- sql 
-  select 
-    99 c1
-  , sysdate c2  
-  , {{ var("p_effective_date") }}  as last_day
-from dual
+{# -- sql 
+{{ dbt_utils.deduplicate( -- Not work with Oracle cause syntax 
+    relation=ref('fin__test'),
+    partition_by='c1',
+    order_by='c2 desc',
+   )
+}}
 
+#}
 
+select c1, c2, last_day from {{ ref('fin__test')}} 

@@ -1,5 +1,5 @@
-{# [comment] for Oracle #}
-{# [comment] handle table does not exists #}
+{#  /*for Oracle*/ #}
+{#  /*handle table does not exists with do-nothing*/ #}
 
 {% macro truncate_table_v2(p_table_owner, p_table_name) %}
 

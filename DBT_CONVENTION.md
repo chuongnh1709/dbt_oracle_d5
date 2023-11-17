@@ -50,10 +50,13 @@ Try running the following commands:
     - document được tham chiếu = doc block từ trong model_schema.yml
 
 - Comment in Jinja :
-    {# [comment] this COMMENT not display when compiled #}
-    -- this line still display when dbt compile. While above line will not 
-
-    - Prefix [comment] need to be at begin of line for distinguish
+    Following format :
+        {#  /*handle table does not exists with do-nothing*/ #}
+        
+        {#  --handle table does not exists with do-nothing
+        #}
+        
+        -- this line still display when dbt compile. While above line will not 
 
 ### Resources:
 - Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
