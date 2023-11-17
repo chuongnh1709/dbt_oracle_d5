@@ -16,4 +16,5 @@
 
 #}
 
-select c1, c2, last_day from {{ ref('fin__test')}} 
+select c1, c2, last_day , wrong_col
+from {{ ref('fin__test')}} 

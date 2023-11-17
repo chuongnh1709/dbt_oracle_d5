@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: fin__test_v_2
+    description: fin__test_v_2
+    tags:
+      - daily
+      
+    meta:
+      owner:"@chuong.nguyen"
+      fal:
+        scripts:
+          - python/slack_notify.py

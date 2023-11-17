@@ -17,6 +17,7 @@
     - ghi log for every model  : pre_hook ; post_hook (dml / macro )
         - lần chạy tới data lớn hơn độ rộng cột ?
         - lần chạy tới thiếu 1 cột (do đổi câu query)
+        - Làm sao bắt lỗi từ console 
 
     - migrate dct_client
         - add source                /

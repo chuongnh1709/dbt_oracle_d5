@@ -1,0 +1,14 @@
+# dbt core 
+dbt-core
+
+# dbt oracle adapter 
+dbt-oracle
+
+# dbt oracle diver 
+oracledb
+
+# run python inside dbt project 
+dbt-fal
+
+# slack noti 
+slack_sdk
