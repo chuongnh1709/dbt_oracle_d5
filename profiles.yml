@@ -12,7 +12,7 @@ dbt_oracle_d5:
          port: 1521
          service: "{{ env_var('DBT_ENV_SECRET_ORACLE_SERVICE_D5') }}"
          database: "{{ env_var('DBT_ENV_SECRET_ORACLE_DATABASE_D5') }}"
-         schema: 'LDM_SBV' 
+         schema: "{{ env_var('DBT_ENV_SECRET_ORACLE_SCHEMA','LDM_SBV' ) }}"
          retry_count: 1
          retry_delay: 3
          threads: 4
