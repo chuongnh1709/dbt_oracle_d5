@@ -26,21 +26,19 @@
       {{ log('[NO] ' ~ item , info=True) }}
   {% endif %}
 
+  {# [comment] iterate all row for column 1  #}
+  {{ log('[For loop ] ' , info=True) }}
+  {% for i in item_col_1 %}
+    {% if i == 2 %}  
+        {{ log('[YES] ' ~ i ~ '-' ~ item_col_1 , info=True) }}
+
+    {% else %}
+        {{ log('[NO] ' ~ i ~ '-' ~ item_col_1  , info=True) }}
+    {% endif %}
+
+  {% endfor %}
+
 {% endif %}
-
-{# [comment] iterate all row for column 1  #}
-{{ log('[For loop ] ' , info=True) }}
-{% for i in item_col_1 %}
-  {% if i == 2 %}  
-      {{ log('[YES] ' ~ i ~ '-' ~ item_col_1 , info=True) }}
-
-  {% else %}
-      {{ log('[NO] ' ~ i ~ '-' ~ item_col_1  , info=True) }}
-  {% endif %}
-
-{% endfor %}
-
-
 
   select 
       999     c1

@@ -1,0 +1,76 @@
+version: 2
+
+models:
+  - name: dbt_dct_client
+    # description: List of Client load from owner_int.in_hom_client 
+    description: '{{ doc("vndw_559") }}'
+    materialized: table
+    # tags: ['daily','sbv_dct_client']
+    enabled: true
+
+    meta:
+      created_by: "@chuong.nguyenh2"
+      created_at: "15-Nov-2023"
+
+    columns:
+      - name: skp_client
+        description: Primary key of table
+        tests:
+          - not_null
+      - name: code_source_system
+        description: Code of the source system
+        tests:
+          - not_null
+      - name: id_source
+        description: Identification of record in the source system
+        tests:
+          - not_null
+          - unique
+      - name: date_effective
+        description: Effective (business) date the record was last modified
+        tests:
+          - not_null
+      - name: dtime_inserted
+        description: Date when record was created
+        tests:
+          - not_null
+      - name: dtime_updated
+        description: Date (and time) when record was updated for the last time
+        tests:
+          - not_null
+      - name: flag_deleted
+        description: Flag marking records deleted from source system
+        tests:
+          - not_null
+      - name: id_cuid
+        description: Client universal ID in PIF
+        tests:
+          - not_null
+
+  - name: dbt_dct_client__map
+    description: dct_client mapping
+    materialized: ephemeral
+    enabled: true
+    # tags:
+    #   - daily
+    #   - sbv_dct_client
+
+    columns:
+      - name: skp_client
+      - name: code_source_system
+      - name: id_source
+        tests:
+          - not_null
+          - unique
+      - name: date_effective
+      - name: dtime_inserted
+      - name: dtime_updated
+      - name: flag_deleted
+      - name: id_cuid
+
+  - name: dbt_dc_client
+    description: dct_client view for output 
+    materialized: view
+    enabled: true
+    # tags:
+    #   - sbv_dct_client

@@ -1,14 +1,6 @@
 version: 2
 
 sources: 
-
-  - name: ldm_sbv
-    config:
-      enabled: true
-    schema: ldm_sbv
-    tables:
-      - name: clt_adld_newband
-
   - name: owner_int
     config:
       enabled: true

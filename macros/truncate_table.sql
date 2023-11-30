@@ -9,7 +9,7 @@
 
 {% set now = modules.datetime.datetime.now() %}
 
--- begin
+-- execute truncate 
 {% do run_query(truncate_sql) %}
--- end
+
 {% endmacro %}

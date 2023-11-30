@@ -1,0 +1,28 @@
+dbt_oracle_d5:
+  
+  target: dev_d5
+
+  outputs:
+    dev_d5:
+      type: oracle
+      host: DBVN00D5HD.CZ.INFRA
+      user: appdeploy
+      password: VN00D5HD
+      port: 1521
+      protocol: tcp
+      database: VN00D5HD
+      schema: LDM_xxx
+      service: VN00D5HD.CZ.INFRA
+      threads: 4
+
+    dev_a1:
+      type: oracle
+      host: DBVN00A1HD.CZ.INFRA
+      user: appdeploy
+      password: VN00A1HD
+      port: 1521
+      protocol: tcp
+      database: VN00A1HD
+      schema: LDM_xxx
+      service: VN00A1HD.CZ.INFRA
+      threads: 4

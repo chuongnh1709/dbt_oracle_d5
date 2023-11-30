@@ -1,8 +1,25 @@
 -- Resource : 
     python jinja template : https://realpython.com/primer-on-jinja-templating/#get-started-with-jinja
-    
+
 --------------------------------------------------------------------------
--- sprint 6 (doing)
+---- Command helper ----
+    -- echo env_var in PowerShell :    $env:ABC 
+
+    -- Build model based-on tags :     dbt build  --model tag:sbv_dct_client
+
+--------------------------------------------------------------------------
+---- 1 So luu y trong model 
+
+    - Comment 
+        - Hidden comment 
+        - Displayed comment
+
+    - Tag 
+
+    - Set loval variable with space-trim : {%- set v_hom_code_source_system = 'HOM' %}
+
+--------------------------------------------------------------------------
+-- sprint 6 
     - model parallel config         /
     - grantable select  (config)        /
     - truncate table (pre-hook)     /
@@ -17,17 +34,25 @@
     - ghi log for every model  : pre_hook ; post_hook (dml / macro )
         - lần chạy tới data lớn hơn độ rộng cột ?
         - lần chạy tới thiếu 1 cột (do đổi câu query)
-        - Làm sao bắt lỗi từ console 
+        - Làm sao bắt lỗi từ console ? -> ghi nhận thông qua airflow 
 
     - migrate dct_client
         - add source                /
         - incremental model         /
         - snapshot model        
 
-        - sửa script -> tạo bảng, sequence  (sbv_dct_client) -> Run model -> check data  
-        - hoàn thiện doc.md cho dct_client 
-        - chạy trên Prod schema cá nhân  ? 
-        
+-- sprint 8
+        - sửa lại DCT_CLIENT 
+            - sửa script -> tạo bảng, sequence  (sbv_dct_client) -> Run model -> check data  
+                --> sửa suffix thêm dct_client_dbt
+
+            - hoàn thiện doc.md cho dct_client 
+
+            - Merge Branch của DCT client vào 
+
+        - triển khai DCT_PRODUCT theo template của DCT_CLIENT 
+            - Ghi log thành công 
+
 --------------------------------------------------------------------------
 -- next sprint 
     - unit test 
@@ -36,6 +61,7 @@
     - masking on View based on role ???
     - semantic layer 
     
+    - chạy trên Prod schema cá nhân  ? 
 --------------------------------------------------------------------------
 ---- macro Logging 
 - dùng pre_hook và post_hook để ghi log 

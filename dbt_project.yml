@@ -31,11 +31,9 @@ sources:
 # Configuring models
 models: 
   dbt_oracle_d5:
-    elementary:
-      +schema: "elementary"
-
-    example:
-      +enabled: false
+    # elementary:
+    #   +schema: "elementary"
+    #   +enabled: false
 
     legacy:               # legacy code 
       +enabled: false
@@ -47,7 +45,7 @@ models:
       +enabled: false
 
     04_repeatable:        # database proceudre, function , package 
-    +enabled: false
+      +enabled: false
 
     05_repeatable_grants: # sql for granting privilege 
       +enabled: false

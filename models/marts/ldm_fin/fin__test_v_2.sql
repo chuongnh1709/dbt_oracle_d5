@@ -1,10 +1,9 @@
 {{ 
   config(
     materialized='view'
+    ,enabled=false
   ) 
 }}
-
-{{ log("[INFO] Building : " ~ this , info=True ) }}
 
 {# -- sql 
 {{ dbt_utils.deduplicate( -- Not work with Oracle cause syntax 

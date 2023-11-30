@@ -126,11 +126,12 @@
     "extensions.ignoreRecommendations": true,
     "files.autoSave": "afterDelay",
     "python.terminal.activateEnvironment": true,
-
+    
+    // Export Environment variable in Visual Code here 
     "terminal.integrated.env.[osx|windows|linux]": {
          "DBT_PROFILES_DIR": ".",
          "DBT_ENV_SECRET_ORACLE_USER": "appdeploy"
-        ,"DBT_ENV_SECRET_ORACLE_SCHEMA":"LDM_FIN"
+        ,"DBT_ENV_SECRET_ORACLE_SCHEMA":"LDM_SBV"
         
         ,"DBT_ENV_SECRET_ORACLE_DATABASE_D5":"VN00D5HD"
         ,"DBT_ENV_SECRET_ORACLE_PASSWORD_D5":"VN00D5HD"
@@ -142,21 +143,6 @@
         ,"DBT_ENV_SECRET_ORACLE_HOST_A1":"DBVN00A1HD.CZ.INFRA"
         ,"DBT_ENV_SECRET_ORACLE_SERVICE_A1":"VN00A1HD.CZ.INFRA"
         
-        ,"ORACLE_SCHEMA_SBV":"LDM_FIN"
+        ,"ORACLE_SCHEMA_SBV":"LDM_SBV"
     }
 }
-
-
-// dev_d5_sbv:
-// type: oracle
-// user: "{{ env_var('ORACLE_USER') }}"   -- appdeploy
-// pass: "{{ env_var('ORACLE_PASSWORD_D5') }}"  --VN00D5HD
-// protocol: "tcp"
-// host: "{{ env_var('ORACLE_HOST_D5') }}"  --DBVN00D5HD.CZ.INFRA
-// port: 1521
-// service: "{{ env_var('ORACLE_SERVICE_D5') }}" -- VN00D5HD.CZ.INFRA
-// database: "{{ env_var('ORACLE_DATABASE_D5') }}"  --VN00D5HD
-// schema: "{{ env_var('ORACLE_SCHEMA') }}"  --LDM_SBV
-// retry_count: 1
-// retry_delay: 3
-// threads: 4

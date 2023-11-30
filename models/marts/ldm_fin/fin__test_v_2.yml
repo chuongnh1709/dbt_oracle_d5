@@ -5,9 +5,9 @@ models:
     description: fin__test_v_2
     tags:
       - daily
-      
+    enabled: false
     meta:
-      owner:"@chuong.nguyen"
+      owner: "@chuong.nguyen"
       fal:
         scripts:
           - python/slack_notify.py

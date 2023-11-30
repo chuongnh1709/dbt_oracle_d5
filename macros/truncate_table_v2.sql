@@ -14,8 +14,6 @@
     and owner = upper( '{{ p_table_owner }}' )
 {% endset %}
 
-{% do log('[INFO chk_tbl]  ' ~ chk_tbl , info=True) %}
-
 {% if execute %}
   {% set results  = run_query(chk_tbl) %}
    
