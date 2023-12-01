@@ -129,7 +129,7 @@
     
     // Export Environment variable in Visual Code here 
     "terminal.integrated.env.[osx|windows|linux]": {
-         "DBT_PROFILES_DIR": ".",
+        // "DBT_PROFILES_DIR": ".",
          "DBT_ENV_SECRET_ORACLE_USER": "appdeploy"
         ,"DBT_ENV_SECRET_ORACLE_SCHEMA":"LDM_SBV"
         

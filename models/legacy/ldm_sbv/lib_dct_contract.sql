@@ -4,8 +4,8 @@
         -> DIM_CONTRACT_UPDATE_CT_SBV2 (DIM_CONTRACT_UPDATE_CT_SBV) 
             -> DIM_CONTRACT_LOAD_SBV2 (DIM_CONTRACT_LOAD_SBV)
 */
-
-CREATE OR REPLACE PACKAGE LDM_SBV_ETL.lib_dct_contract IS
+---------------------------------------------------------------------------
+CREATE OR REPLACE PACKAGE             LDM_SBV_ETL.lib_dct_contract IS
 
   -- global parameters
         v_default_code_source_system CONSTANT VARCHAR2(10) := 'SBV';
@@ -29,6 +29,8 @@ CREATE OR REPLACE PACKAGE LDM_SBV_ETL.lib_dct_contract IS
 
   PROCEDURE dim_contract_update_ct_sbv(p_process_key IN NUMBER, p_effective_date IN DATE, p_data_type IN VARCHAR2);
 
+ -- PROCEDURE dim_contract_stat_update_sbv(p_process_key IN NUMBER, p_effective_date IN DATE, p_data_type IN VARCHAR2);
+
   PROCEDURE dim_contract_wo_update_sbv(p_process_key IN NUMBER, p_effective_date IN DATE, p_data_type IN VARCHAR2);
 
   PROCEDURE dim_contract_wo_mm_update_sbv(p_process_key IN NUMBER, p_effective_date IN DATE, p_data_type IN VARCHAR2);
@@ -43,7 +45,7 @@ END lib_dct_contract;
 /
 
 
-CREATE OR REPLACE PACKAGE Body LDM_SBV_ETL.lib_dct_contract IS
+CREATE OR REPLACE PACKAGE Body             LDM_SBV_ETL.lib_dct_contract IS
 
  -----------------------------------------------------------------
   -- dim_contract_map_sbv
@@ -51,9 +53,9 @@ CREATE OR REPLACE PACKAGE Body LDM_SBV_ETL.lib_dct_contract IS
   -- created : 26.10.2020
   -- modified : 29.12.2020
   -----------------------------------------------------------------
-
+  
   v_dm2_err_addr      VARCHAR2(255)   := 'Errors - Notification - VN Data mart 2 <4908ab62.homecreditgroup.onmicrosoft.com@emea.teams.ms>';
-
+  
   PROCEDURE dim_contract_map_sbv(p_process_key IN NUMBER, p_effective_date IN DATE, p_data_type IN VARCHAR2) IS
     v_step        VARCHAR2(255);
     v_cnt         Integer;
@@ -166,7 +168,7 @@ CREATE OR REPLACE PACKAGE Body LDM_SBV_ETL.lib_dct_contract IS
             JOIN LDM_SBV.dct_client client ON deal.client_id = to_number(client.id_source)
             JOIN LDM_SBV.dct_product product on hc.product_id = product.id_product
             JOIN  LDM_SBV.dct_product_profile product_profile on product.code_product_profile = product_profile.code_product_profile
-            join LDM_SBV.ft_salesroom_address_tt fsat on hc.salesroom_code = fsat.code_salesroom
+            join LDM_SBV.ft_salesroom_address_tt fsat on hc.salesroom_code = fsat.code_salesroom and fsat.flag_deleted = v_flag_N
 --            join owner_int.vh_hom_salesroom hs on hc.salesroom_code = hs.code
 --            join owner_int.vh_hom_salesroom2address s2a on hs.id = s2a.salesroom_id
 --            join owner_int.vh_hom_address ha on s2a.address_id = ha.id
@@ -174,7 +176,7 @@ CREATE OR REPLACE PACKAGE Body LDM_SBV_ETL.lib_dct_contract IS
 --            join owner_int.vh_hom_region hr on ha.region_code = hr.code
             left JOIN owner_int.in_hom_financial_parameters fp on hc.id = fp.contract_id and fp.archived = 0
                               and fp.code_load_status IN ('OK', 'LOAD')
-                              and fp.code_change_type IN ('X', 'I', 'U', 'D', 'M', 'N')
+                              and fp.code_change_type IN ('X', 'I', 'U', 'M', 'N')
                               and fp.date_effective_inserted = p_effective_date
            left join
             (
@@ -463,11 +465,11 @@ CREATE OR REPLACE PACKAGE Body LDM_SBV_ETL.lib_dct_contract IS
                     WHEN code_credit_type IN ('COL','CAL')
                         AND nvl(cnt_instalment, 0) < 12 THEN 'SHORT'
                     WHEN code_credit_type = 'CAL'
-                        AND nvl(cnt_instalment, 0) = 12
+                        AND nvl(cnt_instalment, 0) = 12 
                         AND (dtime_disbursement = d_def_value_date_future OR dtime_disbursement IS NULL) THEN 'MEDIUM'
                     WHEN code_credit_type = 'CAL'
-                        AND nvl(cnt_instalment, 0) = 60
-                        AND (dtime_disbursement = d_def_value_date_future OR dtime_disbursement IS NULL) THEN 'LONG'
+                        AND nvl(cnt_instalment, 0) = 60 
+                        AND (dtime_disbursement = d_def_value_date_future OR dtime_disbursement IS NULL) THEN 'LONG'    
                     WHEN code_credit_type = 'CAL'
                         AND nvl(cnt_instalment, 0) = 12
                         AND TRUNC(date_first_due, 'MM') <= TRUNC(dtime_disbursement, 'MM') THEN 'SHORT'
@@ -806,8 +808,8 @@ CREATE OR REPLACE PACKAGE Body LDM_SBV_ETL.lib_dct_contract IS
                 t.DATE_CREATION                =    s.DATE_CREATION,
                 t.CODE_CONTRACT_TERM                =    case when s.DTIME_DISBURSEMENT <> d_def_value_date_hist
                                                         then s.CODE_CONTRACT_TERM
---                                                        WHEN NVL(t.CODE_CONTRACT_TERM,v_xna) != NVL(s.CODE_CONTRACT_TERM,v_xna) AND NVL(s.CODE_CONTRACT_TERM,v_xna) != v_xna
---                                                        THEN s.CODE_CONTRACT_TERM --THUAN.DANG 20210621 CBL-17575: USER ONLY CHANGE CNT_INSTALMENT AND THE CODE_CONTRACT_TERM COLUMN ALSO NEED TO CHANGE
+--                                                        WHEN NVL(t.CODE_CONTRACT_TERM,v_xna) != NVL(s.CODE_CONTRACT_TERM,v_xna) AND NVL(s.CODE_CONTRACT_TERM,v_xna) != v_xna 
+--                                                        THEN s.CODE_CONTRACT_TERM --THUAN.DANG 20210621 CBL-17575: USER ONLY CHANGE CNT_INSTALMENT AND THE CODE_CONTRACT_TERM COLUMN ALSO NEED TO CHANGE 
 --                                                        THUAN.DANG 20220919 MOVING TO PACKAGE LIB_UPD_CONTRACT . WHEN USER EXECUTED LRES/PAYHOLD AND CHANGE CNT_INSTALMENT THEN THE CODE_CONTRACT_TERM WILL BE UPDATED
                                                         else
                                                             t.CODE_CONTRACT_TERM
@@ -858,35 +860,36 @@ CREATE OR REPLACE PACKAGE Body LDM_SBV_ETL.lib_dct_contract IS
                                                             s.DTIME_ACTIVATION
                                                         else
                                                             t.DTIME_ACTIVATION
-                                                        end
+                                                        end                                                        
     ;
 
     v_cnt := SQL%ROWCOUNT;
-
+    
     UPDATE ldm_sbv.dct_contract b
-    SET (b.salesroom_address,b.salesroom_province) =
+    SET (b.salesroom_address,b.salesroom_province) = 
         (
             SELECT text_salesroom_address,name_sale_province
             FROM ldm_sbv.ft_salesroom_address_tt a
-            WHERE
+            WHERE 
                 code_status = 'a'
                 AND a.code_salesroom = b.code_salesroom
+                and a.flag_deleted = v_flag_N
         )
     WHERE b.salesroom_province = v_xna
     ;
   /*THUAN.DCANGT 20221128 ADD UPDATE CODE_CONTRACT_TERM CBL-18911 */
-  UPDATE LDM_SBV.DCT_CONTRACT T
+  UPDATE LDM_SBV.DCT_CONTRACT T 
     SET T.CODE_CONTRACT_TERM =
               (CASE
                 WHEN T.CODE_CREDIT_TYPE IN ('COL', 'CAL')
                      AND NVL(CNT_INSTALMENT, 0) < 12 THEN
                  'SHORT'
                 WHEN code_credit_type = 'CAL'
-                    AND nvl(cnt_instalment, 0) = 12
+                    AND nvl(cnt_instalment, 0) = 12 
                     AND (dtime_disbursement = d_def_value_date_future OR dtime_disbursement IS NULL) THEN 'MEDIUM'
                 WHEN code_credit_type = 'CAL'
-                    AND nvl(cnt_instalment, 0) = 60
-                    AND (dtime_disbursement = d_def_value_date_future OR dtime_disbursement IS NULL) THEN 'LONG'
+                    AND nvl(cnt_instalment, 0) = 60 
+                    AND (dtime_disbursement = d_def_value_date_future OR dtime_disbursement IS NULL) THEN 'LONG'    
                 WHEN T.CODE_CREDIT_TYPE = 'CAL'
                      AND NVL(T.CNT_INSTALMENT, 0) = 12
                      AND TRUNC(T.DATE_FIRST_DUE, 'MM') <= TRUNC(T.DTIME_DISBURSEMENT, 'MM') THEN
@@ -994,14 +997,14 @@ CREATE OR REPLACE PACKAGE Body LDM_SBV_ETL.lib_dct_contract IS
                 WHEN T.CODE_CREDIT_STATUS = 'T'
                      AND T.DATE_FIRST_DUE = DATE '3000-01-01' THEN
                  'XNA'
-              END)
+              END)  
   WHERE EXISTS(
     SELECT 1
       FROM LDM_SBV.STM_CONTRACT STM
      WHERE STM.TEXT_CONTRACT_NUMBER = T.TEXT_CONTRACT_NUMBER
        AND STM.CODE_CREDIT_STATUS != 'T'
   )  ;
-    /*THUAN.DCANGT 20221128 ADD UPDATE CODE_CONTRACT_TERM CBL-18911 END */
+    /*THUAN.DCANGT 20221128 ADD UPDATE CODE_CONTRACT_TERM CBL-18911 END */          
     COMMIT;
 
     v_step := 'Write record count';
@@ -1064,7 +1067,7 @@ CREATE OR REPLACE PACKAGE Body LDM_SBV_ETL.lib_dct_contract IS
 
     MERGE
     INTO LDM_SBV.DCT_CONTRACT t
-    USING (SELECT
+    USING (SELECT DISTINCT
                       SKP_CONTRACT
                     , CODE_SOURCE_SYSTEM
                     , ID_SOURCE
@@ -1636,7 +1639,7 @@ CREATE OR REPLACE PACKAGE Body LDM_SBV_ETL.lib_dct_contract IS
             JOIN LDM_SBV.dct_client client ON deal.client_id = to_number(client.id_source)
             JOIN LDM_SBV.dct_product product on hc.product_id = product.id_product
             JOIN  LDM_SBV.dct_product_profile product_profile on product.code_product_profile = product_profile.code_product_profile
-            join LDM_SBV.ft_salesroom_address_tt fsat on hc.salesroom_code = fsat.code_salesroom
+            join LDM_SBV.ft_salesroom_address_tt fsat on hc.salesroom_code = fsat.code_salesroom and fsat.flag_deleted = v_flag_N
 --            join owner_int.vh_hom_salesroom hs on hc.salesroom_code = hs.code
 --            join owner_int.vh_hom_salesroom2address s2a on hs.id = s2a.salesroom_id
 --            join owner_int.vh_hom_address ha on s2a.address_id = ha.id
@@ -1933,11 +1936,11 @@ CREATE OR REPLACE PACKAGE Body LDM_SBV_ETL.lib_dct_contract IS
                     WHEN code_credit_type IN ('COL','CAL')
                         AND nvl(cnt_instalment, 0) < 12 THEN 'SHORT'
                     WHEN code_credit_type = 'CAL'
-                        AND nvl(cnt_instalment, 0) = 12
+                        AND nvl(cnt_instalment, 0) = 12 
                         AND (dtime_disbursement = d_def_value_date_future OR dtime_disbursement IS NULL) THEN 'MEDIUM'
                     WHEN code_credit_type = 'CAL'
-                        AND nvl(cnt_instalment, 0) = 60
-                        AND (dtime_disbursement = d_def_value_date_future OR dtime_disbursement IS NULL) THEN 'LONG'
+                        AND nvl(cnt_instalment, 0) = 60 
+                        AND (dtime_disbursement = d_def_value_date_future OR dtime_disbursement IS NULL) THEN 'LONG'    
                     WHEN code_credit_type = 'CAL'
                         AND nvl(cnt_instalment, 0) = 12
                         AND TRUNC(date_first_due, 'MM') <= TRUNC(dtime_disbursement, 'MM') THEN 'SHORT'

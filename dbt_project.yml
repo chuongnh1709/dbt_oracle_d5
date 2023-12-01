@@ -31,15 +31,6 @@ sources:
 # Configuring models
 models: 
   dbt_oracle_d5:
-    # elementary:
-    #   +schema: "elementary"
-    #   +enabled: false
-
-    legacy:               # legacy code 
-      +enabled: false
-
-    99_datafix:           # init load or longops sql
-      +enabled: false
 
     03_#incremental:      # table and other objects script (DDL)
       +enabled: false
@@ -50,9 +41,15 @@ models:
     05_repeatable_grants: # sql for granting privilege 
       +enabled: false
 
+    99_datafix:           # init load or longops sql
+      +enabled: false
+
     doc:                  # documentation 
       +enabled: false
 
+    legacy:               # legacy code 
+      +enabled: false
+      
     staging:              # source and base model configure 
       +enabled: true
       +tags: staging

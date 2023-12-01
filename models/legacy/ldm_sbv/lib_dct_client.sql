@@ -2,7 +2,7 @@
 -- WF : 
     DIM_CLIENT_MAP_SBV -> DIM_CLIENT_LOAD_SBV -> DIM_CLIENT_LATE_MAP_SBV -> DIM_CLIENT_LOAD_SBV
 */
-
+---------------------------------------------------------------------------
 CREATE OR REPLACE PACKAGE LDM_SBV_ETL.LIB_DCT_CLIENT IS
 
   -- global parameters

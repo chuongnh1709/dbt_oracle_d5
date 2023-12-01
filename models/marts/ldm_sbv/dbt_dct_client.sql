@@ -16,7 +16,7 @@
 }}
 
 SELECT
-    ldm_sbv.s_dct_client_dbt.nextval as skp_client
+    ldm_sbv.s_dbt_dct_client.nextval as skp_client
   , code_source_system
   , id_source
   , date_effective
@@ -25,11 +25,14 @@ SELECT
   , flag_deleted
   , id_cuid
 FROM {{ ref('dbt_dct_client__map') }}
+
 {% if is_incremental() %}
-WHERE date_effective >=(
-      select nvl(max(date_effective), {{ var("d_def_value_date_hist") }} ) 
-      from {{ this }} 
-      )
--- or where not required
+
+-- WHERE  -- or where not required
+--   date_effective >=(
+--       select nvl(max(date_effective), {{ var("d_def_value_date_hist") }} ) 
+--       from {{ this }} 
+      -- )
+
 {% endif %}
 
