@@ -3,9 +3,12 @@ Welcome to your new dbt project!
 
 ### Using the starter project
 
-Try running the following commands:
-- dbt build --model <model_name>
-- dbt test
+Try running the following commands :
+
+- Parse project to check syntax :  dbt parse
+- Testing models : dbt test
+- Build models : dbt build --model <model_name>
+
 
 ### Some DBT PROJECT CONVENTION
 - profiles.yml:

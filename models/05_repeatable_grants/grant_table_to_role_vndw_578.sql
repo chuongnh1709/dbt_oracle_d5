@@ -1,0 +1,1 @@
+grant read on owner_int.in_hom_product to ldm_sbv;

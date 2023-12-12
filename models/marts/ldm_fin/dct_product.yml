@@ -6,7 +6,7 @@ models:
     #   This table has basic information about a contact, 
     #   as well as some derived facts of a contact's activity 
     #   with the JaffleGaggle platform
-    description: '{{ doc("dct_product") }}'
+    # description: '{{ doc("dct_product") }}'
     materialized: table
     tags: daily
     meta:

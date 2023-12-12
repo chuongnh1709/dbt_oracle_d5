@@ -33,4 +33,3 @@ WHERE client.code_load_status IN ('OK', 'LOAD')
     AND client.code_change_type IN ('X', 'I', 'U', 'D', 'M', 'N')
     -- AND client.date_effective_inserted >= {{ var("p_effective_date") }}  -- dk nay tren D5 se ko co data 
     -- AND rownum < 10  -- for Sample data testing 
-

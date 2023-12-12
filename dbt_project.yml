@@ -98,12 +98,11 @@ models:
 vars:   # syntax : {{ var("d_def_value_date_hist") }}
   'dbt_date:time_zone'      : 'Asia/Ho_Chi_Minh'
   v_def_code_source_system  : 'SBV'
+  # v_hom_code_source_system  : 'HOM'
   v_xna                     : 'XNA'
   v_xap                     : 'XAP'
   n_minus_one               : -1
   n_one                     : 1
-  n_two                     : 2
-  n_three                   : 3
   n_zero                    : 0
   v_code_zero               : '0'
   v_flag_x                  : 'X'

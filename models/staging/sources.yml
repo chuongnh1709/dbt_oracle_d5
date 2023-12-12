@@ -7,3 +7,4 @@ sources:
     schema: owner_int
     tables:
       - name: in_hom_client # view/table have to granted to ldm_fin/ldm_sbv in advance
+      - name: in_hom_product 
