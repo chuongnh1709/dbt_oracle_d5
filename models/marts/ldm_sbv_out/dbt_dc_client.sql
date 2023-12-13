@@ -9,6 +9,11 @@
   config(
       materialized='view'
     , tags=['sbv_dct_client']
+    , pre_hook="insert into ldm_sbv.dbt_log (model_schema, model_name ,model_status ) values( '{{ this.schema }}', '{{ this.table }}' ,'start' )"
+    , post_hook=[
+        "insert into ldm_sbv.dbt_log (model_schema, model_name ,model_status) values( '{{ this.schema }}', '{{ this.table }}' ,'end' ) "
+        , "grant select on {{ this }} to  LDM_SBV_SELECT"
+      ]
   ) 
 }}
 
@@ -22,4 +27,5 @@ SELECT
   , dtime_updated
   , flag_deleted
   , id_cuid
+  -- , aaa -- this will issue database error 
 FROM {{ ref('dbt_dct_client') }}

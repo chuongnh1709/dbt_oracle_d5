@@ -40,30 +40,44 @@
         - add source                /
         - incremental model         /
         - snapshot model        
-
+--------------------------------------------------------------------------
 -- sprint 8
         - sửa lại DCT_CLIENT 
             - sửa script -> tạo bảng, sequence  (sbv_dct_client) -> Run model -> check data  
                 --> sửa suffix thêm dct_client_dbt
+            - hoàn thiện doc.md cho dct_client  /
+--------------------------------------------------------------------------
+-- sprint 9
+    - DCT_PRODUCT  /
+    - SBV FT_ACCOUNTING_ONLINE_NEW_TT
 
-            - hoàn thiện doc.md cho dct_client 
+    - Logging : 
+        ghi log = lệnh insert từ post_hook 
+        dùng on-run-end log_dbt_results macro
+    
+    - quy trình chạy dbt 
+        - dbt parse bao gồm bước compile check model syntax (ví dụ reference đến 1 model ko tồn tại)
+        - dbt test -> dbt build model 
+        
+    - hướng dẫn 2 cách debug : tail log + check compile sql 
+    - các bước implement : document , grant , model 
 
-            - Merge Branch của DCT client vào 
-
-        - triển khai DCT_PRODUCT theo template của DCT_CLIENT 
-            - Ghi log thành công 
 
 --------------------------------------------------------------------------
 -- next sprint 
     - unit test 
     - integrate dbt with airflow 
-    - dbt_artifacts -- logging ???
+    - dbt_artifacts -- logging ??? 
     - masking on View based on role ???
     - semantic layer 
     
     - chạy trên Prod schema cá nhân  ? 
+
+
 --------------------------------------------------------------------------
----- macro Logging 
+WORKING AREA 
+--------------------------------------------------------------------------
+---- macro Logging (có thể chạy procedure logging này ngoài airflow ko ?)
 - dùng pre_hook và post_hook để ghi log 
 pre_hook = [ " DELETE FROM {{ source(‘myWIsource’, ‘Employees’) }} where employee_di = empDelId" ]
 
@@ -91,6 +105,10 @@ duration / function_based column
 -- Elementary  : https://github.com/elementary-data/elementary
 
 --------------------------------------------------------------------------
--- Draff
+-- Tích hợp với Airflow 
+https://www.astronomer.io/blog/airflow-dbt-1/
+https://medium.com/hootsuite-engineering/automating-dbt-airflow-9efac348059d
 --------------------------------------------------------------------------
+
+
 

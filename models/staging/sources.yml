@@ -8,3 +8,10 @@ sources:
     tables:
       - name: in_hom_client # view/table have to granted to ldm_fin/ldm_sbv in advance
       - name: in_hom_product 
+
+  - name: sbv_owner_int
+    config:
+      enabled: true
+    schema: ldm_sbv
+    tables:
+      - name: in_hom_product 

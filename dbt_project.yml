@@ -72,27 +72,31 @@ models:
         +tags: ldm_sbv
         +grants:
           select: ['LDM_SBV_ETL']
+          all: ['LDM_SBV_ADMIN']
 
       ldm_sbv_out:
         +tags: ldm_sbv_out
         +materialized: view
         +grants:
           select: ['LDM_SBV_ETL']
-      
+
       ldm_fin:
         +materialized: incremental 
         +tags: ldm_fin
         +grants:
           select: ['LDM_FIN_ETL']
+          all: ['LDM_FIN_ADMIN']
 
       ldm_fin_out:
         +tags: ldm_fin_out
         +materialized: view
         +grants:
-          select: ['LDM_FIN_ETL']
+          select: ['LDM_FIN_ETL','LDM_FIN_SELECT']
 
 # on-run-start: "{{ macro1() }}" 
-# on-run-end: "{{ macro2() }}" 
+on-run-end: 
+  - "{{ log_dbt_results(results) }}"
+  - commit
 
 # Global Variables : The variable will be accessible in all resources
 vars:   # syntax : {{ var("d_def_value_date_hist") }}

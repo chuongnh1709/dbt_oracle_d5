@@ -23,12 +23,12 @@ SELECT
   , sysdate                                                 as dtime_inserted
   , sysdate                                                 as dtime_updated
   , CASE
-    WHEN client.code_change_type =  '{{ var("v_code_change_type_del") }}'
-    THEN  '{{ var("v_flag_y") }}'
-    ELSE  '{{ var("v_flag_n") }}'
+      WHEN client.code_change_type =  '{{ var("v_code_change_type_del") }}'
+      THEN  '{{ var("v_flag_y") }}'
+      ELSE  '{{ var("v_flag_n") }}'
     END                                                     as flag_deleted
   , nvl(client.cuid,  {{ var("n_minus_one") }}  )           as id_cuid
-FROM  {{ source('owner_int', 'in_hom_client') }}  client
+FROM  {{ source('owner_int', 'in_hom_client') }}  client 
 WHERE client.code_load_status IN ('OK', 'LOAD')
     AND client.code_change_type IN ('X', 'I', 'U', 'D', 'M', 'N')
     -- AND client.date_effective_inserted >= {{ var("p_effective_date") }}  -- dk nay tren D5 se ko co data 

@@ -5,7 +5,7 @@ Welcome to your new dbt project!
 
 Try running the following commands :
 
-- Parse project to check syntax :  dbt parse
+- Parse project to check model syntax (also them same with dbt compile ) :  dbt parse
 - Testing models : dbt test
 - Build models : dbt build --model <model_name>
 
