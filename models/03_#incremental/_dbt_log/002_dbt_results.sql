@@ -35,6 +35,7 @@ where 1 = 0
 
 create table ldm_sbv.dbt_results  (
   log_date        date default CURRENT_DATE,
+  started_at        varchar2(50),
   result_id       varchar2(200),
   invocation_id   varchar2(200),
   unique_id       varchar2(200),
@@ -67,3 +68,18 @@ select
 from t1
 ;
 */
+
+select 
+  LOG_DATE
+  ,DATABASE_NAME
+  ,SCHEMA_NAME
+  ,NAME
+  ,RESOURCE_TYPE
+  ,STATUS
+  ,EXECUTION_TIME
+  ,ROWS_AFFECTED
+  ,length(MESSAGE) message_length
+  --, SUBSTR(MESSAGE,1,LEAST(100,LENGTH(MESSAGE)))
+  ,MESSAGE
+from ldm_sbv.dbt_results 
+order by log_date desc ;

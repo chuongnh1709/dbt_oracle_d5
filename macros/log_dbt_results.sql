@@ -1,15 +1,20 @@
-{#  This Macro was customized for running on Oracle DB  #}
+{#  
+  Updated by : Chuong.Nguyen - DM2 
+  Updated at : 13/12/2023
+  Description : This Macro was customized for Oracle DB  
+#}
 
 {% macro log_dbt_results(results) %}
     -- depends_on: {{ ref('dbt_results') }}
     {%- if execute -%}
-        {%- set parsed_results = parse_dbt_results(results) -%}
+        {%- set parsed_results = parse_dbt_results_BK(results) -%}
         {%- if parsed_results | length  > 0 -%}
             {% set insert_dbt_results_query -%}
                 insert ALL 
                 {% for parsed_result_dict in parsed_results %}
                   into {{ ref('dbt_results') }}
                       (
+                          started_at,
                           result_id,
                           invocation_id,
                           unique_id,
@@ -23,16 +28,20 @@
                           message
                   ) values
                       (
-                          '{{ parsed_result_dict.get('result_id') }}',
-                          '{{ parsed_result_dict.get('invocation_id') }}',
-                          '{{ parsed_result_dict.get('unique_id') }}',
-                          '{{ parsed_result_dict.get('database_name') }}',
-                          '{{ parsed_result_dict.get('schema_name') }}',
-                          '{{ parsed_result_dict.get('name') }}',
-                          '{{ parsed_result_dict.get('resource_type') }}',
-                          '{{ parsed_result_dict.get('status') }}',
-                          {{ parsed_result_dict.get('execution_time') }},
-                          {{ parsed_result_dict.get('rows_affected') }}
+                           case
+                            when '{{ parsed_result_dict.get('started_at') }}' = 'None' then '3000-01-01'
+                            else '{{ parsed_result_dict.get('started_at') }}'
+                           end 
+                          ,'{{ parsed_result_dict.get('result_id') }}'
+                          ,'{{ parsed_result_dict.get('invocation_id') }}'
+                          ,'{{ parsed_result_dict.get('unique_id') }}'
+                          ,'{{ parsed_result_dict.get('database_name') }}'
+                          ,'{{ parsed_result_dict.get('schema_name') }}'
+                          ,'{{ parsed_result_dict.get('name') }}'
+                          ,'{{ parsed_result_dict.get('resource_type') }}'
+                          ,'{{ parsed_result_dict.get('status') }}'
+                          ,{{ parsed_result_dict.get('execution_time') }}
+                          ,{{ parsed_result_dict.get('rows_affected') }}
                           /* ,'{{ parsed_result_dict.get('message') }}' */
                           , REGEXP_SUBSTR ( '{{ parsed_result_dict.get('message') }}' , '.*$', 1, 1, 'm') 
                             || CHR (10) 

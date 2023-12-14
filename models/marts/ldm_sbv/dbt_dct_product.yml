@@ -14,54 +14,54 @@ models:
     columns:
       - name: skp_product
         description: Primary key of table
-        tests:
-          - not_null
+        # tests:
+        #   - not_null
       - name: code_source_system
         description: Code of the source system
-        tests:
-          - not_null
+        # tests:
+        #   - not_null
       - name: id_source
         description: Identification of record in the source system
-        tests:
-          - not_null
-          - unique
+        # tests:
+        #   - not_null
+        #   - unique
       - name: date_effective
         description: Effective (business) date the record was last modified
-        tests:
-          - not_null
+        # tests:
+        #   - not_null
       - name: dtime_inserted
         description: Date when record was created
-        tests:
-          - not_null
+        # tests:
+        #   - not_null
       - name: dtime_updated
         description: Date (and time) when record was updated for the last time
-        tests:
-          - not_null
+        # tests:
+        #   - not_null
       - name: flag_deleted
         description: Flag marking records deleted from source system
-        tests:
-          - not_null
+        # tests:
+        #   - not_null
       - name: id_product
-        tests:
-          - not_null
+        # tests:
+        #   - not_null
       - name: code_product
         description: Level 0 - Product code.
-        tests:
-          - not_null
+        # tests:
+        #   - not_null
       - name: name_product
         description: Level 0 - Product name.
-        tests:
-          - not_null
+        # tests:
+        #   - not_null
       - name: date_creation
-        tests:
-          - not_null
+        # tests:
+        #   - not_null
       - name: name_version_status
-        tests:
-          - not_null
+        # tests:
+        #   - not_null
       - name: code_product_profile
         description: Code product profile
-        tests:
-          - not_null
+        # tests:
+        #   - not_null
 
   - name: dbt_dct_product__map
     description: dct_product mapping

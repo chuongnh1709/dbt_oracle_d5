@@ -58,10 +58,11 @@
     - quy trình chạy dbt 
         - dbt parse bao gồm bước compile check model syntax (ví dụ reference đến 1 model ko tồn tại)
         - dbt test -> dbt build model 
-        
+
     - hướng dẫn 2 cách debug : tail log + check compile sql 
     - các bước implement : document , grant , model 
 
+    - các test cân nhắc -> để constraint trên table rồi thì thôi, vì nếu chạy nhiều test sẽ ảnh hưởng performance của dbt 
 
 --------------------------------------------------------------------------
 -- next sprint 

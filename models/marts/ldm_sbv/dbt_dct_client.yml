@@ -15,37 +15,37 @@ models:
     columns:
       - name: skp_client
         description: Primary key of table
-        tests:
-          - not_null
+        # tests:
+        #   - not_null
       - name: code_source_system
         description: Code of the source system
-        tests:
-          - not_null
+        # tests:
+        #   - not_null
       - name: id_source
         description: Identification of record in the source system
-        tests:
-          - not_null
-          - unique
+        # tests:
+        #   - not_null
+        #   - unique
       - name: date_effective
         description: Effective (business) date the record was last modified
-        tests:
-          - not_null
+        # tests:
+        #   - not_null
       - name: dtime_inserted
         description: Date when record was created
-        tests:
-          - not_null
+        # tests:
+        #   - not_null
       - name: dtime_updated
         description: Date (and time) when record was updated for the last time
-        tests:
-          - not_null
+        # tests:
+        #   - not_null
       - name: flag_deleted
         description: Flag marking records deleted from source system
-        tests:
-          - not_null
+        # tests:
+        #   - not_null
       - name: id_cuid
         description: Client universal ID in PIF
-        tests:
-          - not_null
+        # tests:
+        #   - not_null
 
   - name: dbt_dct_client__map
     description: dct_client mapping

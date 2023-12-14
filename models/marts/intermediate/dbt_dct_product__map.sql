@@ -15,6 +15,8 @@
     materialized='ephemeral'
     , parallel=2
     , tags=['sbv_dct_product','daily']
+    , pre_hook="{{ dbt_log('start') }}"
+    , post_hook="{{ dbt_log('end') }}"
   ) 
 }}
 

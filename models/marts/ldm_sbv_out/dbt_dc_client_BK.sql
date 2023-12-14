@@ -8,14 +8,15 @@
 {{ 
   config(
       materialized='view'
-    , tags=['sbv_dct_client']
-    , pre_hook="{{ dbt_log('start') }}"
+    , tags=['sbv_dct_client_XXXX']
+    , pre_hook="insert into ldm_sbv.dbt_log (model_schema, model_name ,model_status ) values( '{{ this.schema }}', '{{ this.table }}' ,'start' )"
     , post_hook=[
-        "{{ dbt_log('end') }}"
+        "insert into ldm_sbv.dbt_log (model_schema, model_name ,model_status) values( '{{ this.schema }}', '{{ this.table }}' ,'end' ) "
         , "grant select on {{ this }} to  LDM_SBV_SELECT"
       ]
   ) 
 }}
+
 
 SELECT
     skp_client
