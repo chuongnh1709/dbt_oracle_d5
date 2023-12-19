@@ -2,7 +2,6 @@
     
     {# 
       -- Using Namespace object as Global variable 
-      -- started_at  : is python date function --> convert to Oracle date format 
     #}
     
     -- Create a list of parsed results
@@ -21,13 +20,11 @@
             {% set rows_affected = 0 %}
         {%- endif -%}
 
-        {#-- get timming : started_at 
+        {# -- Get execute timming : started_at ; completed_at
         #}
 
         {% set started_at = namespace(value = '1900-01-01') %}
-        {#
-        {{ debug() }}  -- debug_0
-        #}
+        {% set completed_at = namespace(value = '1900-01-01') %}
 
         {% set timing = run_result_dict.get('timing', {}) %} -- list object
 
@@ -36,16 +33,10 @@
 
           {% set timing_name =  item_dict.get('name') %}
           {% set started_at.value = item_dict.get('started_at', 0) ~ ' | timing_name:  ' ~ timing_name %}
-          {#
-          {{ debug() }}  -- debug_1
-          #}
 
           {% if timing_name == "execute" %}
             {% set started_at.value = item_dict.get('started_at') %}
-            
-            {#
-            {% set final_started_at = {{ started_at.value }} %}  -- Error here, can not set 
-            #}
+            {% set completed_at.value = item_dict.get('completed_at') %}
 
             {% set parsed_result_dict = {
               'result_id': invocation_id ~ '.' ~ node.get('unique_id')
@@ -59,22 +50,18 @@
               ,'execution_time': run_result_dict.get('execution_time')
               ,'rows_affected': rows_affected
               ,'message': run_result_dict.get('message')
-              ,'started_at':  started_at
-            }%}
-            {% do parsed_results.append(parsed_result_dict) %}
+              ,'started_at':  started_at.value
+              ,'completed_at': completed_at.value
+              }
+            %}
 
-          {% else %}
-            {% set started_at.value = 'not-match' %}
+          {% do parsed_results.append(parsed_result_dict) %}
+
           {% endif %}
 
-          {# 
-          {{ debug() }}  -- debug_2
-          #}
-
-      {% endfor %}
+       {% endfor %}
     {% endfor %}
 
     {{ return(parsed_results) }}
 
 {% endmacro %} 
-

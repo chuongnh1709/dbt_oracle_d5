@@ -46,8 +46,6 @@
             }%}
             {% do parsed_results.append(parsed_result_dict) %}
 
-          {% else %}
-            {% set started_at = 'not-match' %}
           {% endif %}
 
       {% endfor %}

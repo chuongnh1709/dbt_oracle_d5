@@ -72,13 +72,13 @@ from t1
 -- truncate table ldm_sbv.dbt_results 
 select 
 LOG_DATE
-,STARTED_AT
-,COMPLETED_AT
 ,DATABASE_NAME
 ,SCHEMA_NAME
 ,NAME
 ,RESOURCE_TYPE
 ,STATUS
+,STARTED_AT
+,COMPLETED_AT
 ,EXECUTION_TIME
 ,ROWS_AFFECTED
 ,length(MESSAGE) message_length
