@@ -1,3 +1,8 @@
+{#  
+  Updated by : Chuong.Nguyen - DM2 
+  Updated at : 18/12/2023
+#}
+
 {% macro parse_dbt_results(results) %}
     
     -- Create a list of parsed results
