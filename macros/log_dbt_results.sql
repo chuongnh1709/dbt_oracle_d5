@@ -5,32 +5,37 @@
 #}
 
 {% macro log_dbt_results(results) %}
-    -- depends_on: {{ ref('dbt_results') }}
+    -- depends_on: {{ ref('dbt_model_results') }}
     {%- if execute -%}
-        {%- set parsed_results = parse_dbt_results_BK(results) -%}
+        {%- set parsed_results = parse_dbt_results(results) -%}
         {%- if parsed_results | length  > 0 -%}
             {% set insert_dbt_results_query -%}
                 insert ALL 
                 {% for parsed_result_dict in parsed_results %}
-                  into {{ ref('dbt_results') }}
+                  into {{ ref('dbt_model_results') }}
                       (
-                          started_at,
-                          result_id,
-                          invocation_id,
-                          unique_id,
-                          database_name,
-                          schema_name,
-                          name,
-                          resource_type,
-                          status,
-                          execution_time,
-                          rows_affected,
-                          message
+                          started_at
+                          ,completed_at
+                          ,result_id
+                          ,invocation_id
+                          ,unique_id
+                          ,database_name
+                          ,schema_name
+                          ,name
+                          ,resource_type
+                          ,status
+                          ,execution_time
+                          ,rows_affected
+                          ,message
                   ) values
                       (
                            case
-                            when '{{ parsed_result_dict.get('started_at') }}' = 'None' then '3000-01-01'
-                            else '{{ parsed_result_dict.get('started_at') }}'
+                            when to_char('{{ parsed_result_dict.get('started_at') }}') = 'None' then date'1000-01-01'
+                            else to_timestamp('{{ parsed_result_dict.get('started_at') }}' ,'YYYY-MM-DD"T"HH24:MI:SS.FF6TZH')
+                           end 
+                          ,case
+                            when to_char('{{ parsed_result_dict.get('completed_at') }}') = 'None' then date'1000-01-01'
+                            else to_timestamp('{{ parsed_result_dict.get('completed_at') }}' ,'YYYY-MM-DD"T"HH24:MI:SS.FF6TZH')
                            end 
                           ,'{{ parsed_result_dict.get('result_id') }}'
                           ,'{{ parsed_result_dict.get('invocation_id') }}'

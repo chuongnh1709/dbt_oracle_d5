@@ -31,11 +31,11 @@ where 1 = 0
 ---------------------------------------------------------------------------
 -- Manual Create table For Oracle
 
--- drop table ldm_sbv.dbt_results  ;
-
-create table ldm_sbv.dbt_results  (
+-- drop table ldm_sbv.dbt_model_results  ;
+create table ldm_sbv.dbt_model_results  (
   log_date        date default CURRENT_DATE,
-  started_at        varchar2(50),
+  started_at      timestamp(3) ,
+  completed_at    timestamp(3) ,
   result_id       varchar2(200),
   invocation_id   varchar2(200),
   unique_id       varchar2(200),
@@ -51,7 +51,7 @@ create table ldm_sbv.dbt_results  (
 
 -- partition on log_date...
 
-create unique index ldm_sbv.dbt_results_uniq on ldm_sbv.dbt_results(result_id);
+create unique index ldm_sbv.dbt_results_uniq on ldm_sbv.dbt_model_results(result_id);
 
 /* -- get 2 first lines
 with t1 as (
@@ -69,17 +69,20 @@ from t1
 ;
 */
 
+-- truncate table ldm_sbv.dbt_results 
 select 
-  LOG_DATE
-  ,DATABASE_NAME
-  ,SCHEMA_NAME
-  ,NAME
-  ,RESOURCE_TYPE
-  ,STATUS
-  ,EXECUTION_TIME
-  ,ROWS_AFFECTED
-  ,length(MESSAGE) message_length
-  --, SUBSTR(MESSAGE,1,LEAST(100,LENGTH(MESSAGE)))
-  ,MESSAGE
-from ldm_sbv.dbt_results 
+LOG_DATE
+,STARTED_AT
+,COMPLETED_AT
+,DATABASE_NAME
+,SCHEMA_NAME
+,NAME
+,RESOURCE_TYPE
+,STATUS
+,EXECUTION_TIME
+,ROWS_AFFECTED
+,length(MESSAGE) message_length
+--, SUBSTR(MESSAGE,1,LEAST(100,LENGTH(MESSAGE)))
+,MESSAGE
+from ldm_sbv.dbt_model_results 
 order by log_date desc ;

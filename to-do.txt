@@ -65,6 +65,17 @@
     - các test cân nhắc -> để constraint trên table rồi thì thôi, vì nếu chạy nhiều test sẽ ảnh hưởng performance của dbt 
 
 --------------------------------------------------------------------------
+-- Macro debuging 
+    - set {{ debug() }} vào dưới đoạn code muốn debug 
+    - l : list variable and current step 
+    - n : go to next line
+    - c : go to next breakpoint ( debug point)
+    - p tên_biến / pp tên_biến / hoặc tên_biến : in biến 
+    - type(tên_biến)  
+    - q : quit debug 
+
+
+--------------------------------------------------------------------------
 -- next sprint 
     - unit test 
     - integrate dbt with airflow 

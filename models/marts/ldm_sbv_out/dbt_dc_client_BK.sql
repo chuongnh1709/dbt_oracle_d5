@@ -17,7 +17,7 @@
   ) 
 }}
 
-
+{#
 SELECT
     skp_client
   , code_source_system
@@ -29,3 +29,4 @@ SELECT
   , id_cuid
   -- , aaa -- this will issue database error 
 FROM {{ ref('dbt_dct_client') }}
+#}

@@ -144,5 +144,6 @@
         ,"DBT_ENV_SECRET_ORACLE_SERVICE_A1":"VN00A1HD.CZ.INFRA"
         
         ,"ORACLE_SCHEMA_SBV":"LDM_SBV"
-    }
+    },
+    "dbt.enableNewLineagePanel": true
 }
