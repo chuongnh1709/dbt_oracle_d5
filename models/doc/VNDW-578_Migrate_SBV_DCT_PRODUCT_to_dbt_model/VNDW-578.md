@@ -8,10 +8,12 @@
 
 - LDM_SBV functional
 
+
     | Logical Mapping   | Model                   | Output                   |
     |-------------------|-------------------------|--------------------------|
     | Map               | dbt_dct_product__map    |                          |
     | Load              | dbt_dct_product         | ldm_sbv.dbt_dct_product  |
+
 
 - File lists: 
 
