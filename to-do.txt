@@ -58,7 +58,9 @@
 
 --------------------------------------------------------------------------
 -- dbt implementation sharing  -- sprint 9
-    + tạo bảng -> viết model -> schema + document -> build 
+    + tạo bảng -> viết model -> schema + document(md) -> compile model-> build model 
+    + migrate code : theo tiếp cận mà dbt recommend thì cố gắng migrate từ code gốc ko điều chỉnh logic quá nhiều 
+        -> các phần logic chưa hợp lý sẽ tạo vndw riêng để refactor lại (tránh implement quá nhiều task vào 1 vndw sẽ không kiểm soát đc tính đúng đắn của Model )
 
     - dbt installation + những plugin cần thiết để dev 
         - pluggin : dbt Power User, PowerShell, CMake 

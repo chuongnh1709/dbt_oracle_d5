@@ -18,10 +18,10 @@
   ) 
 }}
 
-{%- set v_hom_code_source_system = 'HOM' %}
+{%- set v_hom_code_source_system  = 'HOM' %}
 {%- set v_bkng_code_source_system = 'BKNG' %}
-{%- set p_effective_date_1 = 'trunc(SYSDATE-2)' %}
-{%- set p_cur_date = 'trunc(SYSDATE)' %}
+{%- set p_effective_date_1        = 'trunc(SYSDATE-2)' %}
+{%- set p_cur_date                = 'trunc(SYSDATE)' %}
 
 WITH  bkng_rank_info AS (
     SELECT 
@@ -30,7 +30,7 @@ WITH  bkng_rank_info AS (
       ,MAX(CASE WHEN type = 'TARIFF_ITEM_TYPE_CODE' THEN value END)  AS code_transaction_subtype
       ,MAX(CASE WHEN type = 'CONTRACT_TERM' THEN value END)          AS code_contract_term
       ,MAX(CASE WHEN type = 'CLIENT_SEGMENT' THEN value END)         AS name_status_acquisition
-    FROM owner_int.in_bkng_rank_001
+    FROM {{ source('owner_int', 'in_bkng_rank_001') }}
     WHERE type IN ('CONTRACT_CODE', 'TARIFF_ITEM_TYPE_CODE', 'CONTRACT_TERM', 'CLIENT_SEGMENT')
       AND code_load_status IN ('OK', 'LOAD')
       AND code_change_type IN ('X', 'I', 'U', 'D', 'M', 'N')
@@ -40,7 +40,10 @@ WITH  bkng_rank_info AS (
     SELECT  /*+ parallel(16) */
         '{{v_bkng_code_source_system}}'      AS code_source_system
         ,to_char(b_mm.id)                    AS id_source
-        ,CASE WHEN b_mm.code_change_type = 'd' THEN 'Y' ELSE 'N' 
+        ,CASE 
+          WHEN b_mm.code_change_type = '{{ var("v_code_change_type_del") }}' 
+          THEN '{{ var("v_flag_y") }}' 
+          ELSE '{{ var("v_flag_n") }}'
         END                                  AS flag_deleted
         ,b_mm.type                           AS code_move_type
         ,b_mm.amount                         AS amt_accounted_value
@@ -60,12 +63,12 @@ WITH  bkng_rank_info AS (
         ,bkri.code_contract_term             AS code_contract_term
         ,bkri.name_status_acquisition        AS name_status_acquisition
         ,b_mm.amount_rounded                 AS amt_accounted_value_r
-    FROM owner_int.in_bkng_movement_002 b_mm
+    FROM {{ source('owner_int', 'in_bkng_movement_002') }} b_mm
     JOIN bkng_rank_info bkri 
         ON bkri.id_accounting_event = b_mm.id_accounting_event
     JOIN ldm_sbv.dct_contract contract  -- change to ref {{'dbt_dct_contract'}} later 
         ON bkri.text_contract_number = contract.text_contract_number
-    LEFT JOIN owner_int.in_csd_enum_value enum 
+    LEFT JOIN {{ source('owner_int', 'in_csd_enum_value') }} enum 
         ON b_mm.type = enum.code 
         AND enum.enum_code = 'ACC_MOVE_TYPES'
         AND enum.enum_group_id = 'CUST'
@@ -77,7 +80,7 @@ WITH  bkng_rank_info AS (
       AND b_mm.code_change_type IN ('X', 'I', 'U', 'D', 'M', 'N')
       AND b_mm.date_effective = {{ var("p_effective_date") }} 
     UNION ALL 
-    SELECT
+    SELECT  --  /*THUAN.DANGT ADD ON 2022-08-12 resolving the missing move case , due to the contract have not created at that time  */
         '{{v_bkng_code_source_system}}'          AS code_source_system
         ,to_char(b_mm.id)                        AS id_source
         ,CASE 
@@ -103,12 +106,12 @@ WITH  bkng_rank_info AS (
         ,bkri.code_contract_term                 AS code_contract_term
         ,bkri.name_status_acquisition            AS name_status_acquisition
         ,b_mm.amount_rounded                     AS amt_accounted_value_r
-    FROM owner_int.in_bkng_movement_002 b_mm
+    FROM {{ source('owner_int', 'in_bkng_movement_002') }} b_mm
     JOIN bkng_rank_info bkri 
         ON bkri.id_accounting_event = b_mm.id_accounting_event
     JOIN ldm_sbv.dct_contract contract 
         ON bkri.text_contract_number = contract.text_contract_number
-    LEFT JOIN owner_int.in_csd_enum_value enum 
+    LEFT JOIN {{ source('owner_int', 'in_csd_enum_value') }}  enum 
         ON b_mm.type = enum.code 
             AND enum.enum_code = 'ACC_MOVE_TYPES'
             AND enum.enum_group_id = 'CUST'
@@ -123,16 +126,16 @@ WITH  bkng_rank_info AS (
         AND contract.dtime_inserted > {{p_cur_date}}
         AND NOT EXISTS (
             SELECT 1
-            FROM ldm_sbv.ft_accounting_online_new_tt tt
+            FROM ldm_sbv.ft_accounting_online_new_tt tt -- change to {{ ref('dbt_ft_accounting_online_new_tt') }}
             WHERE tt.id_source = to_char(b_mm.id)
         )
-        AND NOT EXISTS (
-            SELECT 1
-            FROM ldm_sbv.stm_accounting_online_new_tt stm
-            WHERE stm.id_source = to_char(b_mm.id)
-        )
+        -- AND NOT EXISTS (
+        --     SELECT 1
+        --     FROM ldm_sbv.stm_accounting_online_new_tt stm
+        --     WHERE stm.id_source = to_char(b_mm.id)
+        -- )
     )
-    SELECT 
+    SELECT distinct
        NULL AS skf_accounting_online,
       ,i.code_source_system                                                 AS code_source_system
       ,i.id_source                                                          AS id_source

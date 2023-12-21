@@ -1,17 +1,17 @@
 version: 2
 
 models:
-  - name: dbt_dct_client
-    # description: List of Client load from owner_int.in_hom_client 
-    description: '{{ doc("vndw_559") }}'
+  - name: dbt_ft_acc_online_new_tt
+    # description: 
+    description: '{{ doc("vndw_676") }}'
     materialized: incremental
 
     meta:
       created_by: "@chuong.nguyenh2"
-      created_at: "15-Nov-2023"
+      created_at: "21-Dec-2023"
 
     columns:
-      - name: skp_client
+      - name: skp_product
         description: Primary key of table
       - name: code_source_system
         description: Code of the source system
@@ -25,26 +25,28 @@ models:
         description: Date (and time) when record was updated for the last time
       - name: flag_deleted
         description: Flag marking records deleted from source system
-      - name: id_cuid
-        description: Client universal ID in PIF
+      - name: id_product
+      - name: code_product
+        description: Level 0 - Product code.
+      - name: name_product
+        description: Level 0 - Product name.
+      - name: date_creation
+      - name: name_version_status
+      - name: code_product_profile
+        description: Code product profile
 
-  - name: dbt_dct_client__map
-    description: dct_client mapping
+  - name: dbt_dct_product__map
+    description: dct_product mapping
     materialized: ephemeral
+    enabled: true
 
     columns:
-      - name: skp_client
-      - name: code_source_system
+      - name: skp_product
       - name: id_source
         tests:
           - not_null
           - unique
-      - name: date_effective
-      - name: dtime_inserted
-      - name: dtime_updated
-      - name: flag_deleted
-      - name: id_cuid
 
-  - name: dbt_dc_client
-    description: dct_client view for output 
+  - name: dbt_f_acc_online_new_tt
+    description: dbt_ft_acc_online_new_tt view for output 
     materialized: view
