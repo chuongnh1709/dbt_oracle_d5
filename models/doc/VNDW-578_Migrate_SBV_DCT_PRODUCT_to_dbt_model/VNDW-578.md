@@ -2,7 +2,7 @@
 
 # VNDW-578_Migrate_SBV_DCT_PRODUCT_to_dbt_model
 
-- As-IS : ldm_sbv_etl.lib_dct_product
+- AS-IS : ldm_sbv_etl.lib_dct_product
 
 - TO-BE: migrate to dbt model 
 

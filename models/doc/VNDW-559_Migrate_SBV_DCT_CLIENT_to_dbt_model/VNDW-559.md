@@ -2,7 +2,7 @@
 
 # VNDW-559_Migrate_SBV_DCT_CLIENT_to_dbt_model
 
-- As-IS : ldm_sbv_etl.lib_dct_client
+- AS-IS : ldm_sbv_etl.lib_dct_client
 
 - TO-BE: migrate to dbt model 
 

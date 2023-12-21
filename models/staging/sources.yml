@@ -8,6 +8,9 @@ sources:
     tables:
       - name: in_hom_client # view/table have to granted to ldm_fin/ldm_sbv in advance
       - name: in_hom_product 
+      - name: in_bkng_rank_001
+      - name: in_bkng_movement_002
+      - name: in_csd_enum_value
 
   - name: sbv_owner_int
     config:
@@ -15,3 +18,5 @@ sources:
     schema: ldm_sbv
     tables:
       - name: in_hom_product 
+
+
