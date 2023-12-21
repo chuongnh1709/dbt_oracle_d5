@@ -120,8 +120,7 @@ vars:   # syntax : {{ var("d_def_value_date_hist") }}
   d_def_value_date_future   : date'3000-01-01'
   d_high_timestamp          : date'3000-01-01 00:00:00'
   #p_effective_date          : {{ dbt_date.n_days_ago(1, tz="Asia/Ho_Chi_Minh")) }} # for BQ ? 
-  p_effective_date          : trunc(SYSDATE-1) # For Oracle 
-  
+  p_effective_date          : trunc(SYSDATE-1) # For Oracle   
 
 query-comment:
   comment: "run by {{ target.user }} on {{ target.name }}  to target {{ target.schema }} " 

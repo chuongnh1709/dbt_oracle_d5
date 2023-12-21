@@ -7,12 +7,11 @@
 
 {{ 
   config(
-    materialized='view'
-    , parallel=2
+      materialized='view'
+    , pre_hook="{{ alter_session_parallel(4) }}"
   ) 
 }}
 
 select 2 as c1 
-FROM  {{ source('owner_int', 'in_hom_client') }}  client
-where rownum < 2
+from dual
 

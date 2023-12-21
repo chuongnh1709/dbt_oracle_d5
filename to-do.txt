@@ -25,7 +25,6 @@
     - truncate table (pre-hook)     /
 
     - upload ddl script của bảng vào 03#_incremental để chạy CI/CD sau này (tạo bảng) /  (xem xét có cần ko )
-        - Có set đc index, partition trong model không  --> dbt ko hỗ trợ, phải tự tạo trong 03#_incremental    /
 
     - handle exception in macros  
         - trường hợp truncate bảng ko tồn tại --> thêm sql check bảng có tồn tại vào macro truncate --> cho model lỗi luôn  /
@@ -54,10 +53,12 @@
     - Logging :   /
         ghi log = lệnh insert từ post_hook 
         dùng on-run-end log_dbt_results macro
+    
+    - thêm macro set_oracle_session_parallel(query, dml , ddl)
 
-----------------------------
--- dbt implementation sharing  -- 
-    - tạo bảng -> viết model -> schema + document -> build 
+--------------------------------------------------------------------------
+-- dbt implementation sharing  -- sprint 9
+    + tạo bảng -> viết model -> schema + document -> build 
 
     - dbt installation + những plugin cần thiết để dev 
         - pluggin : dbt Power User, PowerShell, CMake 
@@ -65,11 +66,13 @@
         - profiles.yml (để 1 file trong project nhưng chỉ chứa biến, trỏ ra file bên ngoài)
 
     - dbt recap 
-        - materialization : normal table (create table as), , incremental , snapshot (SCD-2) , view , ephemeral (CTE)
+        - materialization : normal table (create table as) , incremental , snapshot (SCD-2) , view , ephemeral (CTE)
         - ref function
 
     - cấu trúc thư mục trong dbt project 
-        - 03, 04, 05 , 99 
+        - 03, 05 , 99 (tại sao phải có thư mục 03, 04, 05 -> do dbt tạo table với cấu hình very basic )
+            -> do nếu chạy dbt trên nền tảng các Cloud platform thì phần tạo bảng các platform đã lo 
+            -> nếu chạy với các nền tảng onprem thì phần cấu hình lưu trữ phải chuẩn bị trước, do dbt ko thể hỗ trợ tất các các option của table 
         - legacy 
         - doc -> cách viết document 
         - staging : nếu ko thực hiện transform/ cleaning data gì ở staging thì dùng source (1:1), nếu có phải tạo base-model 
@@ -80,8 +83,7 @@
     - migrate code từ plsql -> dbt model 
 
     - quy trình chạy dbt 
-        - dbt parse bao gồm bước compile check model syntax (ví dụ reference đến 1 model ko tồn tại)
-        - dbt test -> dbt build model 
+        - dbt compile --model model_name  --> dbt test --> dbt build model 
             - các test cân nhắc -> để constraint trên table rồi thì thôi, vì nếu chạy nhiều test sẽ ảnh hưởng performance của dbt 
         - generate document / data lineage 
         
@@ -89,6 +91,16 @@
 
     - Logging : 
         - giới thiệu log macro -> check data 2 table log (log thành công, log thất bại sẽ nằm trên Airflow) 
+
+--------------------------------------------------------------------------
+-- Agenda 
+    - Recap 
+        - Install and configure 
+        - model,  materialization 
+        - directory structure 
+        - from plsql to dbt model 
+        - build 
+        - debug and logging 
 
 --------------------------------------------------------------------------
 -- Macro debuging 

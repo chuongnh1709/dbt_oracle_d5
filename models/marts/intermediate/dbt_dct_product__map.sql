@@ -70,7 +70,7 @@ SELECT
         WHEN i.code_change_type = '{{ var("v_code_change_type_del") }}'
         THEN '{{ var("v_flag_y") }}'
         ELSE '{{ var("v_flag_n") }}' 
-      END                                    AS flag_deleted
+      END                                                                 AS flag_deleted
     , i.id                                                                AS id_product
     , nvl(i.code, '{{ var("v_xna") }}' )                                  AS code_product
     , nvl(i.name, '{{ var("v_xna") }}' )                                  AS name_product
