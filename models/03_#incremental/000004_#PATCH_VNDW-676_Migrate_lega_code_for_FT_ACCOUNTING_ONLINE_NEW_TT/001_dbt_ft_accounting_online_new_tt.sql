@@ -13,27 +13,25 @@ BEGIN
       , ID_SOURCE                 VARCHAR2(30)      NOT NULL
       , DATE_EFFECTIVE            DATE              NOT NULL
       , FLAG_DELETED              VARCHAR2(1 CHAR)  NOT NULL
-      , SKP_PROC_INSERTED         NUMBER(38,0)      NOT NULL
-      , SKP_PROC_UPDATED          NUMBER(38,0)      NOT NULL
       , DTIME_INSERTED            DATE              NOT NULL
       , DTIME_UPDATED             DATE              NOT NULL
-      , SKP_CONTRACT              INTEGER
-      , ID_CONTRACT               NUMBER(38,0)
-      , ID_CLIENT                 NUMBER(38,0)
+      , SKP_CONTRACT              INTEGER           NOT NULL
+      , ID_CONTRACT               NUMBER(38,0)      NOT NULL
+      , ID_CLIENT                 NUMBER(38,0)      NOT NULL
       , CODE_MOVE_TYPE            VARCHAR2(50)      NOT NULL
       , TEXT_ACCOUNT_MOVE_DESC    VARCHAR2(255)     NOT NULL
-      , AMT_ACCOUNTED_VALUE       NUMBER
+      , AMT_ACCOUNTED_VALUE       NUMBER(18,4)
       , DATE_ACCOUNTED            DATE              NOT NULL
       , DATE_ACCOUNTING_MOVE      DATE              NOT NULL
       , DTIME_ACC_SYSTEM_CREATED  DATE              NOT NULL
       , CODE_TRANSACTION_SUBTYPE  VARCHAR2(256)     NOT NULL
       , CODE_CREDIT_TYPE          VARCHAR2(30)      NOT NULL
-      , CODE_OWNER                VARCHAR2(30)      NOT NULL 
-      , TEXT_CONTRACT_NUMBER      VARCHAR2(255)     NOT NULL 
-      , DATE_CREATION             DATE
-      , ID_ACCOUNTING_EVENT       NUMBER(38,0)
-      , CODE_CONTRACT_TERM        VARCHAR2(15) 
-      , NAME_STATUS_ACQUISITION   VARCHAR2(80)
+      , CODE_OWNER                VARCHAR2(30)      NOT NULL
+      , TEXT_CONTRACT_NUMBER      VARCHAR2(255)     NOT NULL
+      , DATE_CREATION             DATE              NOT NULL
+      , ID_ACCOUNTING_EVENT       NUMBER(38,0)      NOT NULL
+      , CODE_CONTRACT_TERM        VARCHAR2(15)      NOT NULL
+      , NAME_STATUS_ACQUISITION   VARCHAR2(80)      NOT NULL
       , AMT_ACCOUNTED_VALUE_R     NUMBER(18,4)
       , CONSTRAINT PK_DBT_FT_ACCOUNTING_ONLINE_NEW_TT PRIMARY KEY (SKF_ACCOUNTING_ONLINE)  USING INDEX  TABLESPACE LDM_SBV_IDX 
       )

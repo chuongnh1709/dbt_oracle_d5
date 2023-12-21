@@ -2,16 +2,16 @@ version: 2
 
 models:
   - name: dbt_ft_acc_online_new_tt
-    # description: 
     description: '{{ doc("vndw_676") }}'
     materialized: incremental
 
     meta:
+      short description: Fact table with realized accounting operations - online
       created_by: "@chuong.nguyenh2"
       created_at: "21-Dec-2023"
-
+      
     columns:
-      - name: skp_product
+      - name: skf_accounting_online
         description: Primary key of table
       - name: code_source_system
         description: Code of the source system
@@ -25,23 +25,53 @@ models:
         description: Date (and time) when record was updated for the last time
       - name: flag_deleted
         description: Flag marking records deleted from source system
-      - name: id_product
-      - name: code_product
-        description: Level 0 - Product code.
-      - name: name_product
-        description: Level 0 - Product name.
+      - name: skp_contract
+        description: foreign key identifier to dct contract dimension table (dct_contract).
+      - name: id_contract
+        description: id of contract
+      - name: id_client
+        description: id of client
+      - name: code_move_type
+        description: accounting move type
+      - name: text_account_move_desc
+        description: description of the account move
+      - name: amt_accounted_value
+        description: the accounted value
+      - name: date_accounted
+        description: date when the operation was accounted
+      - name: date_accounting_move
+        description: date when the accounting move really happend
+      - name: dtime_acc_system_created
+        description: date when accounting entry was created in system
+      - name: code_transaction_subtype
+        description: account move transaction subtype
+      - name: code_credit_type
+        description: credit type code
+      - name: code_owner
+        description: code of owner
+      - name: text_contract_number
+        description: number on the form. it is used for communication with clients
       - name: date_creation
-      - name: name_version_status
-      - name: code_product_profile
-        description: Code product profile
+        description: date when contract was created.
+      - name: id_accounting_event
+        description: accounting event identifier on bookng
+      - name: code_contract_term
+        description: > 
+          contract term meaning is practically the same as the contract tenor
+          (=complete number of monthly installments) but aggregates contract tenor only to following values: short, medium, long,
+          written-off. till date when cbl-1092 was deployed contract term was define based on the tenor,
+          from this date contract term is define based on duration of contract
+      - name: name_status_acquisition
+        description: name status acquisition
+      - name: amt_accounted_value_r
+        description: define rounded amount for moves
 
-  - name: dbt_dct_product__map
-    description: dct_product mapping
-    materialized: ephemeral
-    enabled: true
+  - name: dbt_ft_acc_online_new_tt__map
+    description: dbt_ft_acc_online_new_tt mapping
+    materialized: view
 
     columns:
-      - name: skp_product
+      - name: skp_contract
       - name: id_source
         tests:
           - not_null

@@ -2,11 +2,11 @@ version: 2
 
 models:
   - name: dbt_dct_product
-    # description: List of Product load from owner_int.in_hom_product 
     description: '{{ doc("vndw_578") }}'
     materialized: incremental
 
     meta:
+      short description: List of Product load from owner_int.in_hom_product 
       created_by: "@chuong.nguyenh2"
       created_at: "12-Dec-2023"
 

@@ -10,7 +10,9 @@
   config(
     materialized='view'
     , parallel=8
-    , tags=['sbv_ft_acc_online_new_tt','daily']
+    , tags=[
+      'sbv_ft_acc_online_new_tt','daily'
+      ]
     , pre_hook=[  "{{ alter_session_parallel(8) }}" 
                 , "{{ dbt_log('start') }}"
               ]
@@ -126,7 +128,7 @@ WITH  bkng_rank_info AS (
         AND contract.dtime_inserted > {{p_cur_date}}
         AND NOT EXISTS (
             SELECT 1
-            FROM ldm_sbv.ft_accounting_online_new_tt tt -- change to {{ ref('dbt_ft_accounting_online_new_tt') }}
+            FROM ldm_sbv.dbt_ft_accounting_online_new_tt tt -- change to {{ ref('dbt_ft_accounting_online_new_tt') }}  --> become a structure pitfall  ??? -- need to check 
             WHERE tt.id_source = to_char(b_mm.id)
         )
         -- AND NOT EXISTS (
@@ -160,5 +162,5 @@ WITH  bkng_rank_info AS (
       ,sysdate                                                              AS dtime_updated
       ,i.code_contract_term                                                 AS code_contract_term
       ,nvl(i.name_status_acquisition, '{{ var("v_xna") }}')                 AS name_status_acquisition
-      ,i.amt_accounted_value_r
+      ,i.amt_accounted_value_r                                              AS amt_accounted_value_r
     FROM i

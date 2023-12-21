@@ -8,12 +8,8 @@
 {{ 
   config(
       materialized='view'
-    , tags=['sbv_dct_client']
-    , pre_hook="{{ dbt_log('start') }}"
-    , post_hook=[
-        "{{ dbt_log('end') }}"
-        , "grant select on {{ this }} to  LDM_SBV_SELECT"
-      ]
+    , tags='sbv_dct_client'
+    , post_hook="grant select on {{ this }} to  LDM_SBV_SELECT"
   ) 
 }}
 

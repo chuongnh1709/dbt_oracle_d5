@@ -9,7 +9,9 @@
   config(
     materialized='ephemeral'
     , parallel=2
-    , tags=['sbv_dct_client','daily']
+    , tags=[
+        'sbv_dct_client','daily'
+        ]
     , pre_hook="{{ dbt_log('start') }}"
     , post_hook="{{ dbt_log('end') }}"
   ) 
