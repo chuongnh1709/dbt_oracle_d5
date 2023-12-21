@@ -8,6 +8,7 @@
 
 - LDM_SBV functional
 
+
     | Logical Mapping   | Model                  | Output                  |
     |-------------------|------------------------|-------------------------|
     | Map               | dbt_dct_client__map    |                         |
