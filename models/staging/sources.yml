@@ -12,6 +12,13 @@ sources:
       - name: in_bkng_movement_002
       - name: in_csd_enum_value
 
+  - name: ldm_sbv
+    config:
+      enabled: true
+    schema: ldm_sbv
+    tables:
+      - name: dbt_ft_accounting_online_new_tt
+
   - name: sbv_owner_int
     config:
       enabled: true

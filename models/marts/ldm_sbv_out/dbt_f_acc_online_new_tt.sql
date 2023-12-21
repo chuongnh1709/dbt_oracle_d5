@@ -14,7 +14,7 @@
 }}
 
 SELECT
-  
+  skf_accounting_online
   , code_move_type
   , amt_accounted_value
   , date_accounted

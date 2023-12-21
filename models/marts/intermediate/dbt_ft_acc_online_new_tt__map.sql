@@ -27,7 +27,7 @@
 
 WITH  bkng_rank_info AS (
     SELECT 
-      id_accounting_event,
+      id_accounting_event
       ,MAX(CASE WHEN type = 'CONTRACT_CODE' THEN value END)          AS text_contract_number
       ,MAX(CASE WHEN type = 'TARIFF_ITEM_TYPE_CODE' THEN value END)  AS code_transaction_subtype
       ,MAX(CASE WHEN type = 'CONTRACT_TERM' THEN value END)          AS code_contract_term
@@ -68,7 +68,7 @@ WITH  bkng_rank_info AS (
     FROM {{ source('owner_int', 'in_bkng_movement_002') }} b_mm
     JOIN bkng_rank_info bkri 
         ON bkri.id_accounting_event = b_mm.id_accounting_event
-    JOIN ldm_sbv.dct_contract contract  -- change to ref {{'dbt_dct_contract'}} later 
+    JOIN ldm_sbv.dct_contract contract  /* change to ref {{'dbt_dct_contract'}} later */
         ON bkri.text_contract_number = contract.text_contract_number
     LEFT JOIN {{ source('owner_int', 'in_csd_enum_value') }} enum 
         ON b_mm.type = enum.code 
@@ -82,7 +82,7 @@ WITH  bkng_rank_info AS (
       AND b_mm.code_change_type IN ('X', 'I', 'U', 'D', 'M', 'N')
       AND b_mm.date_effective = {{ var("p_effective_date") }} 
     UNION ALL 
-    SELECT  --  /*THUAN.DANGT ADD ON 2022-08-12 resolving the missing move case , due to the contract have not created at that time  */
+    SELECT    /*THUAN.DANGT ADD ON 2022-08-12 resolving the missing move case , due to the contract have not created at that time  */
         '{{v_bkng_code_source_system}}'          AS code_source_system
         ,to_char(b_mm.id)                        AS id_source
         ,CASE 
@@ -111,7 +111,7 @@ WITH  bkng_rank_info AS (
     FROM {{ source('owner_int', 'in_bkng_movement_002') }} b_mm
     JOIN bkng_rank_info bkri 
         ON bkri.id_accounting_event = b_mm.id_accounting_event
-    JOIN ldm_sbv.dct_contract contract 
+    JOIN ldm_sbv.dct_contract contract    /* change to ref {{'dbt_dct_contract'}} later */
         ON bkri.text_contract_number = contract.text_contract_number
     LEFT JOIN {{ source('owner_int', 'in_csd_enum_value') }}  enum 
         ON b_mm.type = enum.code 
@@ -128,17 +128,17 @@ WITH  bkng_rank_info AS (
         AND contract.dtime_inserted > {{p_cur_date}}
         AND NOT EXISTS (
             SELECT 1
-            FROM ldm_sbv.dbt_ft_accounting_online_new_tt tt -- change to {{ ref('dbt_ft_accounting_online_new_tt') }}  --> become a structure pitfall  ??? -- need to check 
+            FROM {{ source('ldm_sbv', 'dbt_ft_accounting_online_new_tt') }}  tt  /* may become a structure pitfall  ??? need to check */
             WHERE tt.id_source = to_char(b_mm.id)
-        )
+        ) /*
         -- AND NOT EXISTS (
         --     SELECT 1
         --     FROM ldm_sbv.stm_accounting_online_new_tt stm
         --     WHERE stm.id_source = to_char(b_mm.id)
-        -- )
+        -- ) */
     )
     SELECT distinct
-       NULL AS skf_accounting_online,
+       NULL AS skf_accounting_online
       ,i.code_source_system                                                 AS code_source_system
       ,i.id_source                                                          AS id_source
       ,{{ var("p_effective_date") }}                                        AS date_effective

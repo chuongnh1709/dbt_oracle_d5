@@ -46,8 +46,6 @@ SELECT
   , id_client
   , id_accounting_event
   , date_creation
-  , dtime_inserted
-  , dtime_updated
   , code_contract_term
   , name_status_acquisition
   , amt_accounted_value_r
