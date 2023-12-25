@@ -8,7 +8,9 @@
 {{ 
   config(
       materialized='view'
-    , tags='sbv_ft_acc_online_new_tt'
+    , tags=[
+      'sbv_ft_acc_online_new_tt'
+    ]
     , post_hook="grant select on {{ this }} to  LDM_SBV_SELECT"
   )
 }}

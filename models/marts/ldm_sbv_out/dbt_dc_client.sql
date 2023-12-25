@@ -8,7 +8,9 @@
 {{ 
   config(
       materialized='view'
-    , tags='sbv_dct_client'
+    , tags=[
+      'sbv_dct_client'
+    ]
     , post_hook="grant select on {{ this }} to  LDM_SBV_SELECT"
   ) 
 }}
