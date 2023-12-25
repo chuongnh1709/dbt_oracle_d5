@@ -100,6 +100,7 @@
         - Install and configure 
         - model,  materialization 
         - directory structure 
+    - Implementation 
         - from plsql to dbt model 
         - build 
         - debug and logging 

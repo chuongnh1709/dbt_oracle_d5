@@ -1,36 +1,46 @@
 version: 2
 
 macros:
- - name: log_dbt_results
-   description: audit dbt model run time into database table dbt_results 
-   arguments:
-     - name: results
-       type: json dictionary 
-       description: dbt results artifact 
+  - name: log_dbt_results
+    description: audit dbt model run time into database table dbt_results 
+    arguments:
+      - name: results
+        type: json dictionary 
+        description: dbt results artifact 
 
- - name: parse_dbt_results
-   description: parse dbt results artifact into json dictionary
-   arguments:
-     - name: results
-       type: json dictionary 
-       description: dbt results artifact 
- 
- - name: truncate_table
-   description: truncate table 
-   arguments:
-     - name: p_table_owner
-       type: string
-       description: table owner
-     - name: p_table_name
-       type: string
-       description: table name
+  - name: parse_dbt_results
+    description: parse dbt results artifact into json dictionary
+    arguments:
+      - name: results
+        type: json dictionary 
+        description: dbt results artifact 
+  
+  - name: truncate_table
+    description: truncate table 
+    arguments:
+      - name: p_table_owner
+        type: string
+        description: table owner
+      - name: p_table_name
+        type: string
+        description: table name
 
- - name: truncate_table_v2
-   description: handle table not exists with do-nothing
-   arguments:
-     - name: p_table_owner
-       type: string
-       description: table owner
-     - name: p_table_name
-       type: string
-       description: table name
+  - name: truncate_table_v2
+    description: handle table not exists with do-nothing
+    arguments:
+      - name: p_table_owner
+        type: string
+        description: table owner
+      - name: p_table_name
+        type: string
+        description: table name
+
+  - name: dbt_log
+    description: insert audit data before and after model execution 
+    arguments:
+      - name: p_status
+        type: string
+        description: running status of model 
+      - name: p_log_table
+        type: string
+        description: dbt_log table 

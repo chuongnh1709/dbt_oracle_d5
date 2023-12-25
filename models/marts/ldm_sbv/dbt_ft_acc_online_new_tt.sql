@@ -18,7 +18,9 @@
     , tags=[
         'sbv_ft_acc_online_new_tt','daily'
         ]
-    , pre_hook="{{ dbt_log('start') }}"
+    , pre_hook=[  "{{ alter_session_parallel(8) }}" 
+                , "{{ dbt_log('start') }}"
+    ]
     , post_hook="{{ dbt_log('end') }}"
   ) 
 }}

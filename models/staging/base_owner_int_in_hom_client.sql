@@ -13,3 +13,5 @@
         {{ adapter.quote("SK_PROC_INSERTED") }}
 
     from {{ source('owner_int', 'in_hom_client') }}
+
+
