@@ -1,3 +1,4 @@
+{# /*
 -- Save model as 'dbt_results.sql'
 
 {{
@@ -27,6 +28,7 @@ select * from empty_table
 where 1 = 0
 
 -- dbt run -m dbt_results
+*/ #}
 
 ---------------------------------------------------------------------------
 -- Manual Create table For Oracle
