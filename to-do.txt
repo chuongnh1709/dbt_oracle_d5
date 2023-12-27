@@ -54,7 +54,7 @@
         ghi log = lệnh insert từ post_hook 
         dùng on-run-end log_dbt_results macro
     
-    - thêm macro set_oracle_session_parallel(query, dml , ddl)
+    - thêm macro set_oracle_session_parallel(query, dml , ddl) /
 
 --------------------------------------------------------------------------
 -- dbt implementation sharing  -- sprint 9

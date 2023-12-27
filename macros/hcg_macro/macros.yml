@@ -43,4 +43,17 @@ macros:
         description: running status of model 
       - name: p_log_table
         type: string
-        description: dbt_log table 
+        description: dbt_log table
+
+  - name: alter_session_parallel
+    description: alter session enable parallel for Oracle db 
+    arguments:
+      - name: p_query_degree
+        type: string
+        description: parallel degree for query sql , default = 4 
+      - name: p_dml_degree
+        type: string
+        description: parallel degree for dml sql , default = p_query_degree
+      - name: p_ddl_degree
+        type: string
+        description: parallel degree for ddl sql , default = p_query_degree
