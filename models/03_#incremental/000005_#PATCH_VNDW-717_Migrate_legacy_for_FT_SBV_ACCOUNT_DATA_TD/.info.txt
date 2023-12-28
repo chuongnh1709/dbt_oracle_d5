@@ -1,0 +1,8 @@
+--03_#INCREMENTAL/VNDW-676_Migrate_legacy_code_to_dbt_model_for_FT_ACCOUNTING_ONLINE_NEW_TT/001_dbt_ft_accounting_online_new_tt.sql
+--03_#INCREMENTAL/VNDW-676_Migrate_legacy_code_to_dbt_model_for_FT_ACCOUNTING_ONLINE_NEW_TT/002_s_dbt_ft_accounting_online_new_tt.sql \
+--05_repeatable_grants/grant_table_to_role_vndw_676.sql \
+--legacy/lib_ft_acc_online_new.sql \
+--mart/intermediate/dbt_ft_acc_online_new_tt__map.sql
+--mart/ldm_sbv/dbt_ft_acc_online_new_tt.sql \
+--mart/ldm_sbv/dbt_ft_acc_online_new_tt.yml \
+--mart/ldm_sbv_out/dbt_f_acc_online_new_tt.sql
