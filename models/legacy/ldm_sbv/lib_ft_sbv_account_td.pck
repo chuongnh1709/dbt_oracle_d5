@@ -1,7 +1,5 @@
 
-CREATE OR REPLACE PACKAGE                                  LDM_SBV_ETL.lib_ft_sbv_account_td IS
-
-
+CREATE OR REPLACE PACKAGE LDM_SBV_ETL.lib_ft_sbv_account_td IS
 
 -- global parameters
     v_default_code_source_system CONSTANT VARCHAR2(10) := 'SBV';

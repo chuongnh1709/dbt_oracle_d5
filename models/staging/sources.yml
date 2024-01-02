@@ -18,6 +18,7 @@ sources:
     schema: ldm_sbv
     tables:
       - name: dbt_ft_accounting_online_new_tt
+      - name: dbt_t1_src
 
   - name: sbv_owner_int
     config:

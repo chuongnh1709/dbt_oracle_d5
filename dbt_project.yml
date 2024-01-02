@@ -35,7 +35,7 @@ models:
     03_#incremental:      # table and other objects script (DDL)
       +enabled: false
 
-    04_repeatable:        # database proceudre, function , package 
+    04_repeatable:        # database procedure, function , package 
       +enabled: false
 
     05_repeatable_grants: # sql for granting privilege 
