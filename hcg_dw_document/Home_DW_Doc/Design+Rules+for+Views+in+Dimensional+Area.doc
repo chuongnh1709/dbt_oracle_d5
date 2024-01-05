@@ -1,0 +1,342 @@
+Message-ID: <331736480.9141.1704446309403.JavaMail.confluence@confluence.cz.prod>
+Subject: Exported From Confluence
+MIME-Version: 1.0
+Content-Type: multipart/related; 
+	boundary="----=_Part_9140_2012861920.1704446309403"
+
+------=_Part_9140_2012861920.1704446309403
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/exported.html
+
+<html xmlns:o=3D'urn:schemas-microsoft-com:office:office'
+      xmlns:w=3D'urn:schemas-microsoft-com:office:word'
+      xmlns:v=3D'urn:schemas-microsoft-com:vml'
+      xmlns=3D'urn:w3-org-ns:HTML'>
+<head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+">
+    <title>Design Rules for Views in Dimensional Area</title>
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:TargetScreenSize>1024x640</o:TargetScreenSize>
+            <o:PixelsPerInch>72</o:PixelsPerInch>
+            <o:AllowPNG/>
+        </o:OfficeDocumentSettings>
+        <w:WordDocument>
+            <w:View>Print</w:View>
+            <w:Zoom>90</w:Zoom>
+            <w:DoNotOptimizeForBrowser/>
+        </w:WordDocument>
+    </xml>
+    <![endif]-->
+    <style>
+                <!--
+        @page Section1 {
+            size: 8.5in 11.0in;
+            margin: 1.0in;
+            mso-header-margin: .5in;
+            mso-footer-margin: .5in;
+            mso-paper-source: 0;
+        }
+
+        table {
+            border: solid 1px;
+            border-collapse: collapse;
+        }
+
+        table td, table th {
+            border: solid 1px;
+            padding: 5px;
+        }
+
+        td {
+            page-break-inside: avoid;
+        }
+
+        tr {
+            page-break-after: avoid;
+        }
+
+        div.Section1 {
+            page: Section1;
+        }
+
+        /* Confluence print stylesheet. Common to all themes for print medi=
+a */
+/* Full of !important until we improve batching for print CSS */
+
+@media print {
+    #main {
+        padding-bottom: 1em !important; /* The default padding of 6em is to=
+o much for printouts */
+    }
+
+    body {
+        font-family: Arial, Helvetica, FreeSans, sans-serif;
+        font-size: 10pt;
+        line-height: 1.2;
+    }
+
+    body, #full-height-container, #main, #page, #content, .has-personal-sid=
+ebar #content {
+        background: #fff !important;
+        color: #000 !important;
+        border: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+    }
+
+    a, a:link, a:visited, a:focus, a:hover, a:active {
+        color: #000;
+    }
+
+    #content h1,
+    #content h2,
+    #content h3,
+    #content h4,
+    #content h5,
+    #content h6 {
+        font-family: Arial, Helvetica, FreeSans, sans-serif;
+        page-break-after: avoid;
+    }
+
+    pre {
+        font-family: Monaco, "Courier New", monospace;
+    }
+
+    #header,
+    .aui-header-inner,
+    #navigation,
+    #sidebar,
+    .sidebar,
+    #personal-info-sidebar,
+    .ia-fixed-sidebar,
+    .page-actions,
+    .navmenu,
+    .ajs-menu-bar,
+    .noprint,
+    .inline-control-link,
+    .inline-control-link a,
+    a.show-labels-editor,
+    .global-comment-actions,
+    .comment-actions,
+    .quick-comment-container,
+    #addcomment {
+        display: none !important;
+    }
+
+    /* CONF-28544 cannot print multiple pages in IE */
+    #splitter-content {
+        position: relative !important;
+    }
+
+    .comment .date::before {
+        content: none !important; /* remove middot for print view */
+    }
+
+    h1.pagetitle img {
+        height: auto;
+        width: auto;
+    }
+
+    .print-only {
+        display: block;
+    }
+
+    #footer {
+        position: relative !important; /* CONF-17506 Place the footer at en=
+d of the content */
+        margin: 0;
+        padding: 0;
+        background: none;
+        clear: both;
+    }
+
+    #poweredby {
+        border-top: none;
+        background: none;
+    }
+
+    #poweredby li.print-only {
+        display: list-item;
+        font-style: italic;
+    }
+
+    #poweredby li.noprint {
+        display: none;
+    }
+
+    /* no width controls in print */
+    .wiki-content .table-wrap,
+    .wiki-content p,
+    .panel .codeContent,
+    .panel .codeContent pre,
+    .image-wrap {
+        overflow: visible !important;
+    }
+
+    /* TODO - should this work? */
+    #children-section,
+    #comments-section .comment,
+    #comments-section .comment .comment-body,
+    #comments-section .comment .comment-content,
+    #comments-section .comment p {
+        page-break-inside: avoid;
+    }
+
+    #page-children a {
+        text-decoration: none;
+    }
+
+    /**
+     hide twixies
+
+     the specificity here is a hack because print styles
+     are getting loaded before the base styles. */
+    #comments-section.pageSection .section-header,
+    #comments-section.pageSection .section-title,
+    #children-section.pageSection .section-header,
+    #children-section.pageSection .section-title,
+    .children-show-hide {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .children-show-hide.icon {
+        display: none;
+    }
+
+    /* personal sidebar */
+    .has-personal-sidebar #content {
+        margin-right: 0px;
+    }
+
+    .has-personal-sidebar #content .pageSection {
+        margin-right: 0px;
+    }
+
+    .no-print, .no-print * {
+        display: none !important;
+    }
+}
+-->
+    </style>
+</head>
+<body>
+    <h1>Design Rules for Views in Dimensional Area</h1>
+    <div class=3D"Section1">
+        <div class=3D"confluence-information-macro confluence-information-m=
+acro-note">
+<span class=3D"aui-icon aui-icon-small aui-iconfont-warning confluence-info=
+rmation-macro-icon"></span>
+<div class=3D"confluence-information-macro-body">
+<p>Following text and examples focus on joins in DA view definitions. Other=
+ aspects of DA views =E2=80=93 like computation of derived columns or colum=
+n ordering =E2=80=93 are out of scope.</p>
+</div>
+</div>
+<p>The general rule for views in DA is simple: views are direct select stat=
+ements over tables:</p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">=20
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: sql; gutter: false; theme: Confluence" data-theme=3D"Confluence">create o=
+r replace view owner_dwh.&lt;view&gt; as
+select * from owner_dwh.&lt;table&gt;
+</pre>=20
+</div>
+</div>
+<p>View name corresponds to driving table name as defined by <a href=3D"/co=
+nfluence/display/DWH/Naming+Conventions%2C+Attribute+Standards">Naming Conv=
+entions, Attribute Standards</a>.</p>
+<p>In specific situations, it is desirable to join more tables into a singl=
+e view. Further we describe rules and motivation.</p>
+<h5 id=3D"DesignRulesforViewsinDimensionalArea-GeneralRules">General Rules<=
+/h5>
+<p>The general rules of thumb are as follows.</p>
+<ul>
+<li>Each view has a single driving table.</li>
+<li>View name is derived from driving table name according to <a href=3D"/c=
+onfluence/display/DWH/Naming+Conventions%2C+Attribute+Standards">Naming Con=
+ventions, Attribute Standards</a>.<br> If you need to create another view o=
+ver driving table and standard view name is already taken, use some further=
+ specification. For example, as view name f_contract_ad cannot be used, you=
+ could create another view over ft_contract_ad like this:</li>
+</ul>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">=20
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: sql; gutter: false; theme: Confluence" data-theme=3D"Confluence">create o=
+r replace view owner_dwh.f_contract_provision_metrics_ad as
+select t.*, ... from owner_dwh.ft_contract_ad t left join ...
+</pre>=20
+</div>
+</div>
+<ul>
+<li>The view must have all the columns from the driving table, except SKP/S=
+KF columns referencing the joined tables.</li>
+<li>The view must have all the business columns of joined tables.</li>
+<li>The view can have SKP/SKF columns from joined tables that reference oth=
+er tables.</li>
+<li>It is not allowed to add into the view only SKP/SKF columns from the jo=
+ined table (join from driving table to table A to add into the view SKP/SKF=
+ reference to table B stored in A).</li>
+</ul>
+<p>In other words, when we put all business columns from joined table into =
+the view, keeping SKP/SKF of the joined table in the view would be redundan=
+t and is prohibited.</p>
+<p>Typical situations for usage of general rules include:</p>
+<ul>
+<li>Join fact table and dimension in fact table view.</li>
+<li>Join master-detail (parent-child), aggregate-atomic data in the detail =
+view:
+<ul>
+<li>Join master dimension table to detail dimension table in the detail dim=
+ension view: join DCT_PRODUCT and CLT_PRODUCT_CHANNEL in DC_PRODUCT.</li>
+<li>Join parent fact table to child fact table in the child fact view: join=
+ FT_APPROVAL_PROCESS_STEP_TT and FT_APPROVAL_PROCESS_HEAD_TT in F_APPROVAL_=
+PROCESS_STEP_TT.</li>
+</ul></li>
+</ul>
+<p>There can be exceptions to these rules. For example, if business request=
+s to join narrow fact table =E2=80=93 e.g., a key-value fact table (vector)=
+ =E2=80=93 with dimension(s) which have many columns, it is acceptable to p=
+ropagate into the view only selected dimension columns and keep SKP columns=
+ in the view, because adding all dimension columns into the fact view would=
+ make it difficult to read. Actually, you would use approach for code list =
+joining.</p>
+<h5 id=3D"DesignRulesforViewsinDimensionalArea-JoiningCodeLists">Joining Co=
+de Lists</h5>
+<p>When joining fact / dimension table with a code list table, only selecte=
+d code list columns can be presented in the fact / dimension view; minimall=
+y and typically, the CODE column is present in the view.</p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">=20
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: sql; gutter: false; theme: Confluence" data-theme=3D"Confluence">create o=
+r replace view owner_dwh.&lt;view&gt; as
+select t.*
+, ct.code_...
+from owner_dwh.&lt;table&gt; t left join owner_dwh.&lt;code_list_table&gt; =
+clt on t.skp_... =3D clt.skp_...
+</pre>=20
+</div>
+</div>
+<p>Code list SKP column remains in the view.</p>
+<h5 id=3D"DesignRulesforViewsinDimensionalArea-JoiningFactandDimensionTable=
+ofEntity">Joining Fact and Dimension Table of Entity</h5>
+<p>General rules apply here with one exception: Dimension SKP is kept in th=
+e view. For example, the F_APPLICATION_TT view joining FT_APPLICATION_TT an=
+d DCT_APPLICATION has the SKP_APPLICATION column.</p>
+<p>This rule should be applied typically to <a href=3D"/confluence/display/=
+DWH/Master+Entities">Master Entities</a>.</p>
+    </div>
+</body>
+</html>
+------=_Part_9140_2012861920.1704446309403--

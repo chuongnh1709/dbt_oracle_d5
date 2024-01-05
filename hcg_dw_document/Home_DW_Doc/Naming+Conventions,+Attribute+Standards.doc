@@ -1,0 +1,924 @@
+Message-ID: <1651863102.9139.1704446274263.JavaMail.confluence@confluence.cz.prod>
+Subject: Exported From Confluence
+MIME-Version: 1.0
+Content-Type: multipart/related; 
+	boundary="----=_Part_9138_611929780.1704446274262"
+
+------=_Part_9138_611929780.1704446274262
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/exported.html
+
+<html xmlns:o=3D'urn:schemas-microsoft-com:office:office'
+      xmlns:w=3D'urn:schemas-microsoft-com:office:word'
+      xmlns:v=3D'urn:schemas-microsoft-com:vml'
+      xmlns=3D'urn:w3-org-ns:HTML'>
+<head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+">
+    <title>Naming Conventions, Attribute Standards</title>
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:TargetScreenSize>1024x640</o:TargetScreenSize>
+            <o:PixelsPerInch>72</o:PixelsPerInch>
+            <o:AllowPNG/>
+        </o:OfficeDocumentSettings>
+        <w:WordDocument>
+            <w:View>Print</w:View>
+            <w:Zoom>90</w:Zoom>
+            <w:DoNotOptimizeForBrowser/>
+        </w:WordDocument>
+    </xml>
+    <![endif]-->
+    <style>
+                <!--
+        @page Section1 {
+            size: 8.5in 11.0in;
+            margin: 1.0in;
+            mso-header-margin: .5in;
+            mso-footer-margin: .5in;
+            mso-paper-source: 0;
+        }
+
+        table {
+            border: solid 1px;
+            border-collapse: collapse;
+        }
+
+        table td, table th {
+            border: solid 1px;
+            padding: 5px;
+        }
+
+        td {
+            page-break-inside: avoid;
+        }
+
+        tr {
+            page-break-after: avoid;
+        }
+
+        div.Section1 {
+            page: Section1;
+        }
+
+        /* Confluence print stylesheet. Common to all themes for print medi=
+a */
+/* Full of !important until we improve batching for print CSS */
+
+@media print {
+    #main {
+        padding-bottom: 1em !important; /* The default padding of 6em is to=
+o much for printouts */
+    }
+
+    body {
+        font-family: Arial, Helvetica, FreeSans, sans-serif;
+        font-size: 10pt;
+        line-height: 1.2;
+    }
+
+    body, #full-height-container, #main, #page, #content, .has-personal-sid=
+ebar #content {
+        background: #fff !important;
+        color: #000 !important;
+        border: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+    }
+
+    a, a:link, a:visited, a:focus, a:hover, a:active {
+        color: #000;
+    }
+
+    #content h1,
+    #content h2,
+    #content h3,
+    #content h4,
+    #content h5,
+    #content h6 {
+        font-family: Arial, Helvetica, FreeSans, sans-serif;
+        page-break-after: avoid;
+    }
+
+    pre {
+        font-family: Monaco, "Courier New", monospace;
+    }
+
+    #header,
+    .aui-header-inner,
+    #navigation,
+    #sidebar,
+    .sidebar,
+    #personal-info-sidebar,
+    .ia-fixed-sidebar,
+    .page-actions,
+    .navmenu,
+    .ajs-menu-bar,
+    .noprint,
+    .inline-control-link,
+    .inline-control-link a,
+    a.show-labels-editor,
+    .global-comment-actions,
+    .comment-actions,
+    .quick-comment-container,
+    #addcomment {
+        display: none !important;
+    }
+
+    /* CONF-28544 cannot print multiple pages in IE */
+    #splitter-content {
+        position: relative !important;
+    }
+
+    .comment .date::before {
+        content: none !important; /* remove middot for print view */
+    }
+
+    h1.pagetitle img {
+        height: auto;
+        width: auto;
+    }
+
+    .print-only {
+        display: block;
+    }
+
+    #footer {
+        position: relative !important; /* CONF-17506 Place the footer at en=
+d of the content */
+        margin: 0;
+        padding: 0;
+        background: none;
+        clear: both;
+    }
+
+    #poweredby {
+        border-top: none;
+        background: none;
+    }
+
+    #poweredby li.print-only {
+        display: list-item;
+        font-style: italic;
+    }
+
+    #poweredby li.noprint {
+        display: none;
+    }
+
+    /* no width controls in print */
+    .wiki-content .table-wrap,
+    .wiki-content p,
+    .panel .codeContent,
+    .panel .codeContent pre,
+    .image-wrap {
+        overflow: visible !important;
+    }
+
+    /* TODO - should this work? */
+    #children-section,
+    #comments-section .comment,
+    #comments-section .comment .comment-body,
+    #comments-section .comment .comment-content,
+    #comments-section .comment p {
+        page-break-inside: avoid;
+    }
+
+    #page-children a {
+        text-decoration: none;
+    }
+
+    /**
+     hide twixies
+
+     the specificity here is a hack because print styles
+     are getting loaded before the base styles. */
+    #comments-section.pageSection .section-header,
+    #comments-section.pageSection .section-title,
+    #children-section.pageSection .section-header,
+    #children-section.pageSection .section-title,
+    .children-show-hide {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .children-show-hide.icon {
+        display: none;
+    }
+
+    /* personal sidebar */
+    .has-personal-sidebar #content {
+        margin-right: 0px;
+    }
+
+    .has-personal-sidebar #content .pageSection {
+        margin-right: 0px;
+    }
+
+    .no-print, .no-print * {
+        display: none !important;
+    }
+}
+-->
+    </style>
+</head>
+<body>
+    <h1>Naming Conventions, Attribute Standards</h1>
+    <div class=3D"Section1">
+        <ol>
+<li>All names of tables, views, and attributes (columns) are English.</li>
+<li>Names must correspond to business terms used in the Dictionary of busin=
+ess terms.</li>
+<li>Use underscore character "_" to delimit words in names.</li>
+<li>Names are hierarchical. General words come first, specific words come l=
+ater.<br> <strong>Example:</strong> Attribute with short quarter name can b=
+e named NAME_QUARTER_SHORT.</li>
+<li>The primary quality criterion is descriptiveness of the name. Names sho=
+uld be narrative. Do not try to save letters, use the limit of 30 character=
+s.<br> Abbreviation are allowed, their usage should be unified. Abbreviatio=
+n for a term should be defined in business dictionary.<br> When using abbre=
+viations, follow the rules:
+<ul>
+<li>Create abbreviation from hierarchical name.</li>
+<li>Abbreviation starts with first letter in name.</li>
+<li>Underscore can be used to delimit abbreviations.<br> <strong>Example:</=
+strong> For term <em>contract</em> abbreviations <em>contr</em> or <em>con<=
+/em> are good; for <em>credit</em>, <em>cred</em> or <em>cre</em> are possi=
+ble. For <em>credit_contract</em>, you can use <em>cred_contr</em>.</li>
+</ul></li>
+<li>Minor discrepancies in names due to historical changes are acceptable.<=
+/li>
+<li>All <strong>exceptions</strong> have<strong> to be approved by core DWH=
+ team</strong> (EIT DWH)</li>
+<li><strong>ID_CUID NUMBER format</strong> is <strong>allowed in some cases=
+&nbsp;</strong>due to better DWH <strong>performance&nbsp;&nbsp;</strong></=
+li>
+</ol>
+<h1 id=3D"NamingConventions,AttributeStandards-TablesandViews">Tables and V=
+iews</h1>
+<ol>
+<li><p>Naming template for tables and views is <em>&lt;prefix&gt;_&lt;table=
+ / view name&gt;_&lt;suffix&gt;</em>.<br> Following table summarizes rules =
+for parts of table / view name.</p>
+<div class=3D"table-wrap">
+<table id=3D"TBL1703778320575" class=3D"wrapped confluenceTable" align=3D"c=
+enter">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<th class=3D"confluenceTh"><p>Part of name</p></th>
+<th class=3D"confluenceTh"><p>Syntax for fact tables</p></th>
+<th class=3D"confluenceTh"><p>Syntax for dimension tables</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p><em>&lt;prefix&gt;</em></p></td>
+<td class=3D"confluenceTd">
+<div class=3D"content-wrapper">
+<p><strong>FT</strong> for</p>
+<u>F</u>
+<p>act</p>
+<u>T</u>
+<p>ables. <br class=3D"atl-forced-newline"> <strong>F</strong> for fact vie=
+ws.</p>
+</div></td>
+<td class=3D"confluenceTd">
+<div class=3D"content-wrapper">
+<p><strong>DCT</strong> for</p>
+<u>D</u>
+<p>imension</p>
+<u>C</u>
+<p>urrent</p>
+<u>T</u>
+<p>ables (tables with only actual data). <br class=3D"atl-forced-newline"> =
+<strong>DC</strong> for views over DCT tables. <br class=3D"atl-forced-newl=
+ine"> <strong>DHT</strong> for</p>
+<u>D</u>
+<p>imension</p>
+<u>H</u>
+<p>istory</p>
+<u>T</u>
+<p>ables (tables with actual and historical data). <br class=3D"atl-forced-=
+newline"> <strong>DH</strong> for views over DHT tables. <br class=3D"atl-f=
+orced-newline"> <strong>CLT</strong> for</p>
+<u>C</u>
+<p>ode</p>
+<u>L</u>
+<p>ist</p>
+<u>T</u>
+<p>ables (small dimensions with list of important values of some attribute)=
+. <br class=3D"atl-forced-newline"> <strong>CL</strong> for views over CLT =
+tables.</p>
+</div></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p><em>&lt;table / view name&gt;</em></p></td>
+<td class=3D"confluenceTd"><p>Names of tables / views use singular. <br cla=
+ss=3D"atl-forced-newline"> Names must clearly refer to semantics of stored =
+data: identify business process and related entities. <br class=3D"atl-forc=
+ed-newline"> <strong>Example:</strong> Name of fact table is <em>FT_INSTALM=
+ENT_PAYMENT_AD</em>, not <em>FT_INSTALMENT_PAYMENTS_AD</em>.</p></td>
+<td class=3D"confluenceTd"><p>Names of tables / views use singular. <br cla=
+ss=3D"atl-forced-newline"> Names must clearly identify underlying entities.=
+ <br class=3D"atl-forced-newline"> <strong>Example:</strong> Name of contra=
+ct dimension table is <em>DCT_CONTRACT</em>, not <em>DCT_CONTRACTS</em>.</p=
+></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p><em>&lt;suffix&gt;</em></p></td>
+<td class=3D"confluenceTd"><p>Carries information about table type and time=
+ granularity. The suffix has the two-letter format <strong>&lt;T&gt;&lt;G&g=
+t;</strong> where <br class=3D"atl-forced-newline"> =E2=80=93 <strong>&lt;T=
+&gt;</strong> is table type: <strong>T</strong> for transactional, <strong>=
+A</strong> for accumulating snapshot, <strong>P</strong> for periodical sna=
+pshot <br class=3D"atl-forced-newline"> =E2=80=93 <strong>&lt;G&gt;</strong=
+> is business time granularity (validity): <strong>T</strong> for presize t=
+ime, <strong>H</strong> for hour, <strong>D</strong> for day, <strong>W</st=
+rong> for week, <strong>M</strong> for month; notice that time granularity =
+depends purely on business and is defined by specific date / time attribute=
+ of the table =E2=80=93 it has nothing to do with schedule of HomeDW proces=
+sing. <br class=3D"atl-forced-newline"> <strong>Example:</strong> <em>FT_CO=
+NTRACT_AD</em> is accumulated snapshot fact table (each contract has one re=
+cord in the table) with daily granularity which must be specified in docume=
+ntation (for example, granularity can be defined by <em>DATE_APPROVAL</em> =
+attribute).</p></td>
+<td class=3D"confluenceTd"><p>Suffix is not mandatory for dimension tables.=
+ It can be used for views over driving dimension table with left-joined fac=
+t accumulated table; then suffix of fact table is used in the view name.</p=
+></td>
+</tr>
+</tbody>=20
+<script type=3D"text/javascript">
+
+$("table[id=3D'TBL1703778320575']").data("appfire-table","true");
+(new org_swift_TableSorter()).customTable('TBL1703778320575',[],'',
+1,'lightgoldenrodyellow',true,
+'Click to sort','',false,
+false,false,true,
+0,false,'',true,
+'',false,false,'','','','',
+true,'',
+''
+);
+
+</script>=20
+</table>
+</div></li>
+<li>Name of view created over single table must be same as name of underlyi=
+ng table, except for prefix.<br> <strong>Example:</strong> View over fact t=
+able <em>FT_INSTALMENT_PAYMENT_AD</em> is named <em>F_INSTALMENT_PAYMENT_AD=
+</em>.</li>
+<li>If a view is created as join over more tables, its name must use name o=
+f the driving table.<br> <strong>Example:</strong> View over driving dimens=
+ion table <em>DCT_CONTRACT</em> and left-joined accumulated fact table <em>=
+FT_CONTRACT_AD</em> is <em>DC_CONTRACT_AD</em>.</li>
+</ol>
+<h1 id=3D"NamingConventions,AttributeStandards-Attributes">Attributes</h1>
+<ol>
+<li><p>Attribute names must begin with a prefix for easier identification o=
+f attribute contents. The following table describes supported prefixes.<br>=
+<strong>ODS</strong> tables - Only <strong>Prefix</strong> part is applicab=
+le</p>
+<div class=3D"table-wrap">
+<table id=3D"TBL1703778320576" class=3D"wrapped confluenceTable" align=3D"c=
+enter">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<th class=3D"confluenceTh"><p>Prefix</p></th>
+<th class=3D"confluenceTh"><p>Dimension / Fact</p></th>
+<th class=3D"confluenceTh"><p>Business / Technical</p></th>
+<th class=3D"confluenceTh"><p>Description</p></th>
+<th class=3D"confluenceTh"><p>Example</p></th>
+<th class=3D"confluenceTh"><p>Nulls allowed</p></th>
+<th class=3D"confluenceTh"><p>Null-representing value</p></th>
+<th class=3D"confluenceTh"><p>Data type</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p>code</p></td>
+<td class=3D"confluenceTd"><p>D</p></td>
+<td class=3D"confluenceTd"><p>B</p></td>
+<td class=3D"confluenceTd"><p>Codes are typically used for short descriptio=
+n of types or statuses of objects, or as short object identifiers. <br clas=
+s=3D"atl-forced-newline"> Codes have business semantics =E2=80=93 business =
+people understand the codes.</p></td>
+<td class=3D"confluenceTd"><p>code_credit_status, code_client_type</p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-cross" src=3D=
+"aa60c79e78ea814549a2f1312504f1d9" data-emoticon-name=3D"cross" alt=3D"(err=
+or)"></p></td>
+<td class=3D"confluenceTd"><p>XNA, XAP</p></td>
+<td class=3D"confluenceTd"><p>String</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p>name</p></td>
+<td class=3D"confluenceTd"><p>D</p></td>
+<td class=3D"confluenceTd"><p>B</p></td>
+<td class=3D"confluenceTd"><p>General names of objects, values.</p></td>
+<td class=3D"confluenceTd"><p>name_account, name_adminpoint, name_first, na=
+me_birth_place</p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-cross" src=3D=
+"aa60c79e78ea814549a2f1312504f1d9" data-emoticon-name=3D"cross" alt=3D"(err=
+or)"></p></td>
+<td class=3D"confluenceTd"><p>XNA, XAP</p></td>
+<td class=3D"confluenceTd"><p>String</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p>text</p></td>
+<td class=3D"confluenceTd"><p>D</p></td>
+<td class=3D"confluenceTd"><p>B</p></td>
+<td class=3D"confluenceTd"><p>Short, usually structured texts: account numb=
+er, e-mails, addresses, etc.</p></td>
+<td class=3D"confluenceTd"><p>text_account_number, text_address, text_email=
+</p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-cross" src=3D=
+"aa60c79e78ea814549a2f1312504f1d9" data-emoticon-name=3D"cross" alt=3D"(err=
+or)"></p></td>
+<td class=3D"confluenceTd"><p>XNA, XAP</p></td>
+<td class=3D"confluenceTd"><p>String</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p>desc</p></td>
+<td class=3D"confluenceTd"><p>D</p></td>
+<td class=3D"confluenceTd"><p>B</p></td>
+<td class=3D"confluenceTd"><p>Free text: notes, descriptions, etc.</p></td>
+<td class=3D"confluenceTd"><p>desc_card, desc_goods_brand, desc_incoming_pa=
+yment</p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-cross" src=3D=
+"aa60c79e78ea814549a2f1312504f1d9" data-emoticon-name=3D"cross" alt=3D"(err=
+or)"></p></td>
+<td class=3D"confluenceTd"><p>XNA, XAP</p></td>
+<td class=3D"confluenceTd"><p>String</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p>username</p></td>
+<td class=3D"confluenceTd"><p>D</p></td>
+<td class=3D"confluenceTd"><p>B</p></td>
+<td class=3D"confluenceTd"><p>Logins of users of some system.</p></td>
+<td class=3D"confluenceTd"><p>username_employee, username_client</p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-cross" src=3D=
+"aa60c79e78ea814549a2f1312504f1d9" data-emoticon-name=3D"cross" alt=3D"(err=
+or)"></p></td>
+<td class=3D"confluenceTd"><p>XNA, XAP</p></td>
+<td class=3D"confluenceTd"><p>String</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p>id</p></td>
+<td class=3D"confluenceTd"><p>D</p></td>
+<td class=3D"confluenceTd"><p>B</p></td>
+<td class=3D"confluenceTd"><p>Primary system identifiers that are unique wi=
+thin primary systems.</p></td>
+<td class=3D"confluenceTd"><p>id_cuid, id_source</p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-cross" src=3D=
+"aa60c79e78ea814549a2f1312504f1d9" data-emoticon-name=3D"cross" alt=3D"(err=
+or)"></p></td>
+<td class=3D"confluenceTd"><p>XNA, XAP</p></td>
+<td class=3D"confluenceTd"><p>String</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p>skp</p></td>
+<td class=3D"confluenceTd"><p>D</p></td>
+<td class=3D"confluenceTd"><p>T</p></td>
+<td class=3D"confluenceTd"><p>Primary surrogate key (SKP) of dimension or c=
+ode list table. SKP uniquely identifies objects.</p></td>
+<td class=3D"confluenceTd"><p>skp_credit_type, skp_salesroom <br class=3D"a=
+tl-forced-newline"> For example, each application has a unique skp_applicat=
+ion value in dct_application.</p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-cross" src=3D=
+"aa60c79e78ea814549a2f1312504f1d9" data-emoticon-name=3D"cross" alt=3D"(err=
+or)"></p></td>
+<td class=3D"confluenceTd"><p>-1, -2</p></td>
+<td class=3D"confluenceTd"><p>Numeric</p></td>
+</tr>
+<tr>
+<td colspan=3D"1" class=3D"confluenceTd">skf</td>
+<td colspan=3D"1" class=3D"confluenceTd">F</td>
+<td colspan=3D"1" class=3D"confluenceTd">T</td>
+<td colspan=3D"1" class=3D"confluenceTd"><span>Primary surrogate key (SKF) =
+of fact table.</span></td>
+<td colspan=3D"1" class=3D"confluenceTd">skf_recovery_method, skf_incoming_=
+payment</td>
+<td colspan=3D"1" class=3D"confluenceTd"><img class=3D"emoticon emoticon-cr=
+oss" src=3D"aa60c79e78ea814549a2f1312504f1d9" data-emoticon-name=3D"cross" =
+alt=3D"(error)"></td>
+<td colspan=3D"1" class=3D"confluenceTd"><span>-1, -2</span></td>
+<td colspan=3D"1" class=3D"confluenceTd"><span>Numeric</span></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p>sk</p></td>
+<td class=3D"confluenceTd"><p>D</p></td>
+<td class=3D"confluenceTd"><p>T</p></td>
+<td class=3D"confluenceTd"><p>Primary surrogate key (SK) of historic dimens=
+ion table. SK uniquely identifies historic object records in historic dimen=
+sions (DHT tables)</p></td>
+<td class=3D"confluenceTd"><p>sk_salesroom, sk_client<br class=3D"atl-force=
+d-newline">For example, there can be 3 records for a client in dht_client, =
+each with unique sk_client; all 3 records share common skp_client.</p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-cross" src=3D=
+"aa60c79e78ea814549a2f1312504f1d9" data-emoticon-name=3D"cross" alt=3D"(err=
+or)"></p></td>
+<td class=3D"confluenceTd"><p>-1, -2</p></td>
+<td class=3D"confluenceTd"><p>Numeric</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p>skp_date</p></td>
+<td class=3D"confluenceTd"><p>D</p></td>
+<td class=3D"confluenceTd"><p>T</p></td>
+<td class=3D"confluenceTd"><p>SKP of Date dimension in format YYYYMMDD.</p>=
+</td>
+<td class=3D"confluenceTd"><p>skp_date_approval</p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-cross" src=3D=
+"aa60c79e78ea814549a2f1312504f1d9" data-emoticon-name=3D"cross" alt=3D"(err=
+or)"></p></td>
+<td class=3D"confluenceTd"><p>10000101, 30000101</p></td>
+<td class=3D"confluenceTd"><p>Numeric</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p>flag</p></td>
+<td class=3D"confluenceTd"><p>D</p></td>
+<td class=3D"confluenceTd"><p>B</p></td>
+<td class=3D"confluenceTd"><p>Two value indicator using values 'Y' or 'N'.<=
+/p></td>
+<td class=3D"confluenceTd"><p>flag_recovery_quick, flag_camera_set, flag_ca=
+r_owner</p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-cross" src=3D=
+"aa60c79e78ea814549a2f1312504f1d9" data-emoticon-name=3D"cross" alt=3D"(err=
+or)"></p></td>
+<td class=3D"confluenceTd"><p>X</p></td>
+<td class=3D"confluenceTd"><p>String</p></td>
+</tr>
+<tr>
+<td colspan=3D"1" class=3D"confluenceTd">nflag</td>
+<td colspan=3D"1" class=3D"confluenceTd">F</td>
+<td colspan=3D"1" class=3D"confluenceTd">B</td>
+<td colspan=3D"1" class=3D"confluenceTd"><p>Two value numeric indicator&nbs=
+p;using values&nbsp;0, 1.&nbsp;Numeric counterpart of FLAG values&nbsp;(for=
+ analysis of type =E2=80=9Enumber of occurence of an object with the NFLAG =
+value set").</p></td>
+<td colspan=3D"1" class=3D"confluenceTd">nflag_car_owner, ...</td>
+<td colspan=3D"1" class=3D"confluenceTd"><p><img class=3D"emoticon emoticon=
+-cross" src=3D"aa60c79e78ea814549a2f1312504f1d9" data-emoticon-name=3D"cros=
+s" alt=3D"(error)">/<img class=3D"emoticon emoticon-tick" src=3D"b8d046ae59=
+b76f6dc8aca63249a8bc6b" data-emoticon-name=3D"tick" alt=3D"(tick)"></p></td=
+>
+<td colspan=3D"1" class=3D"confluenceTd">-1</td>
+<td colspan=3D"1" class=3D"confluenceTd">&nbsp;Numeric</td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p>cnt</p></td>
+<td class=3D"confluenceTd"><p>F</p></td>
+<td class=3D"confluenceTd"><p>B</p></td>
+<td class=3D"confluenceTd"><p>Count of objects, events, appearances, etc.</=
+p></td>
+<td class=3D"confluenceTd"><p>cnt_payment, cnt_active_cards, cnt_day_durati=
+on</p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-tick" src=3D"=
+b8d046ae59b76f6dc8aca63249a8bc6b" data-emoticon-name=3D"tick" alt=3D"(tick)=
+"></p></td>
+<td class=3D"confluenceTd"><p><br></p></td>
+<td class=3D"confluenceTd"><p>Numeric</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p>amt</p></td>
+<td class=3D"confluenceTd"><p>F</p></td>
+<td class=3D"confluenceTd"><p>B</p></td>
+<td class=3D"confluenceTd"><p>Amount of something, typically money (financi=
+al amount).</p></td>
+<td class=3D"confluenceTd"><p>amt_credit, amt_instalment, amt_goods_price</=
+p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-tick" src=3D"=
+b8d046ae59b76f6dc8aca63249a8bc6b" data-emoticon-name=3D"tick" alt=3D"(tick)=
+"></p></td>
+<td class=3D"confluenceTd"><p><br></p></td>
+<td class=3D"confluenceTd"><p>Numeric</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p>rate</p></td>
+<td class=3D"confluenceTd"><p>F</p></td>
+<td class=3D"confluenceTd"><p>B</p></td>
+<td class=3D"confluenceTd"><p>Values represent ratios, proportions, (exchan=
+ge) rates; usually should be from the &lt;0; 1&gt; interval, can be any num=
+ber if necessary, typically for exchange rates.</p></td>
+<td class=3D"confluenceTd"><p>rate_interest, rate_commision</p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-tick" src=3D"=
+b8d046ae59b76f6dc8aca63249a8bc6b" data-emoticon-name=3D"tick" alt=3D"(tick)=
+"></p></td>
+<td class=3D"confluenceTd"><p><br></p></td>
+<td class=3D"confluenceTd"><p>Numeric</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p>num</p></td>
+<td class=3D"confluenceTd"><p>F</p></td>
+<td class=3D"confluenceTd"><p>B</p></td>
+<td class=3D"confluenceTd"><p>General numeric values.</p></td>
+<td class=3D"confluenceTd"><p>num_week, num_min_inst_def0_dd, num_instalmen=
+t</p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-tick" src=3D"=
+b8d046ae59b76f6dc8aca63249a8bc6b" data-emoticon-name=3D"tick" alt=3D"(tick)=
+"></p></td>
+<td class=3D"confluenceTd"><p><br></p></td>
+<td class=3D"confluenceTd"><p>Numeric</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p>dtime</p></td>
+<td class=3D"confluenceTd"><p>F</p></td>
+<td class=3D"confluenceTd"><p>B</p></td>
+<td class=3D"confluenceTd"><p>Date and time.</p></td>
+<td class=3D"confluenceTd"><p>dtime_approval</p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-cross" src=3D=
+"aa60c79e78ea814549a2f1312504f1d9" data-emoticon-name=3D"cross" alt=3D"(err=
+or)"></p></td>
+<td class=3D"confluenceTd"><p>1.1.1000, 1.1.3000</p></td>
+<td class=3D"confluenceTd"><p>Datetime</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p>date</p></td>
+<td class=3D"confluenceTd"><p>F</p></td>
+<td class=3D"confluenceTd"><p>B</p></td>
+<td class=3D"confluenceTd"><p>Date rounded to whole day (time portion is se=
+t to midnight and ignored).</p></td>
+<td class=3D"confluenceTd"><p>date_approval</p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-cross" src=3D=
+"aa60c79e78ea814549a2f1312504f1d9" data-emoticon-name=3D"cross" alt=3D"(err=
+or)"></p></td>
+<td class=3D"confluenceTd"><p>1.1.1000, 1.1.3000</p></td>
+<td class=3D"confluenceTd"><p>Datetime</p></td>
+</tr>
+</tbody>=20
+<script type=3D"text/javascript">
+
+$("table[id=3D'TBL1703778320576']").data("appfire-table","true");
+(new org_swift_TableSorter()).customTable('TBL1703778320576',[],'',
+1,'lightgoldenrodyellow',true,
+'Click to sort','',false,
+false,false,true,
+0,false,'',true,
+'',false,false,'','','','',
+true,'',
+''
+);
+
+</script>=20
+</table>
+</div></li>
+<li><p>Fact attribute names can have a suffix. The following table describe=
+s supported suffixes.</p>
+<div class=3D"table-wrap">
+<table id=3D"TBL1703778320577" class=3D"wrapped confluenceTable" align=3D"c=
+enter">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<th class=3D"confluenceTh"><p>Suffix</p></th>
+<th class=3D"confluenceTh"><p>Available for prefix</p></th>
+<th class=3D"confluenceTh"><p>Description</p></th>
+<th class=3D"confluenceTh"><p>Example</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p>avg, max, min</p></td>
+<td class=3D"confluenceTd"><p>cnt, amt, num, rate</p></td>
+<td class=3D"confluenceTd"><p>Average, maximum, minimum of something, typic=
+ally money (financial amount).</p></td>
+<td class=3D"confluenceTd"><p>amt_credit_approved_avg</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p>rank</p></td>
+<td class=3D"confluenceTd"><p>num</p></td>
+<td class=3D"confluenceTd"><p>Represents evaluation of some category, order=
+, etc.</p></td>
+<td class=3D"confluenceTd"><p>num_cumulative_def30_rank</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p>score</p></td>
+<td class=3D"confluenceTd"><p>num</p></td>
+<td class=3D"confluenceTd"><p>Represents evaluation of some scoring.</p></t=
+d>
+<td class=3D"confluenceTd"><p>num_raroi_score</p></td>
+</tr>
+</tbody>=20
+<script type=3D"text/javascript">
+
+$("table[id=3D'TBL1703778320577']").data("appfire-table","true");
+(new org_swift_TableSorter()).customTable('TBL1703778320577',[],'',
+1,'lightgoldenrodyellow',true,
+'Click to sort','',false,
+false,false,true,
+0,false,'',true,
+'',false,false,'','','','',
+true,'',
+''
+);
+
+</script>=20
+</table>
+</div><p><br class=3D"atl-forced-newline"> For each suffix, we also provide=
+ available prefixes. This definition is not strict, you can use other combi=
+nations if they make sense, and add information to this page.<br> Historica=
+lly, some suffixes were used as prefixes.</p></li>
+<li>Dimension vs. fact type defines primary location of attribute with give=
+n prefix. Typical exceptions include
+<ul>
+<li>SKP and SK attributes are used in fact tables as foreign keys to dimens=
+ions.</li>
+<li>Primary key of fact table is not mandatory and if it is available, it s=
+hould be defined as "SKF_&lt;table&gt;" <strong>without table suffix</stron=
+g> (e.g. "_TT", "_AD", ...)</li>
+<li>CODE and ID attributes appear in fact tables.</li>
+<li>Basically all fact business attributes can appear in dimensions, typica=
+lly DATE or AMT.</li>
+</ul></li>
+<li><em>XNA</em> stands for "Value not available". Value of the attribute i=
+s expected and should be normally defined, but it was not obtained for some=
+ reason: typically, it was not specified in the primary system (the primary=
+ system attribute has the NULL value).</li>
+<li><em>XAP</em> stands for "Value not applicable". Value of the attribute =
+is not expected and cannot be defined, because it is not relevant and meani=
+ngful for given record.</li>
+<li><em>XPD</em> stands for "Personal data is hidden". Value of the persona=
+l attribute is defined, but it is hidden from the user because he does not =
+have the privilege to see personal data.</li>
+<li><p>Following table lists predefined auditing attributes for dimensional=
+ area.</p>
+<div class=3D"table-wrap">
+<table id=3D"TBL1703778320578" class=3D"wrapped confluenceTable" align=3D"c=
+enter">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<th class=3D"confluenceTh"><p>Attribute name</p></th>
+<th class=3D"confluenceTh"><p>Description</p></th>
+<th class=3D"confluenceTh"><p>In fact table</p></th>
+<th class=3D"confluenceTh"><p>In dimension table</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p>code_source_system</p></td>
+<td class=3D"confluenceTd"><p>This code identifies source system of a recor=
+d, for example 'HOM' for Homer. In tables that consolidate data from more s=
+ource systems, either code of driving system is used, or code 'DWH' indicat=
+es that record is created by HomeDW.</p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-tick" src=3D"=
+b8d046ae59b76f6dc8aca63249a8bc6b" data-emoticon-name=3D"tick" alt=3D"(tick)=
+"></p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-tick" src=3D"=
+b8d046ae59b76f6dc8aca63249a8bc6b" data-emoticon-name=3D"tick" alt=3D"(tick)=
+"></p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p>id_source</p></td>
+<td class=3D"confluenceTd"><p>Unique identification of record used in the s=
+ource system.</p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-tick" src=3D"=
+b8d046ae59b76f6dc8aca63249a8bc6b" data-emoticon-name=3D"tick" alt=3D"(tick)=
+"></p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-tick" src=3D"=
+b8d046ae59b76f6dc8aca63249a8bc6b" data-emoticon-name=3D"tick" alt=3D"(tick)=
+"></p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p>date_effective</p></td>
+<td class=3D"confluenceTd"><p>Effective date when table record was last pro=
+cessed (inserted, updated) by HomeDW transformation processes. Effective da=
+te is internal parameter of HomeDW transformations that are executed on dai=
+ly basis. Each daily processing has its unique effective date. <br class=3D=
+"atl-forced-newline"> Typically, daily processing that executes on April 13=
+, 2-8 AM, has the effective date of April 12. <br class=3D"atl-forced-newli=
+ne"> Effective dates cannot be interpreted as business dates. Although they=
+ are related to business dates under normal operations, they are purely tec=
+hnical, internal dates of HomeDW transformation processes.</p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-tick" src=3D"=
+b8d046ae59b76f6dc8aca63249a8bc6b" data-emoticon-name=3D"tick" alt=3D"(tick)=
+"></p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-tick" src=3D"=
+b8d046ae59b76f6dc8aca63249a8bc6b" data-emoticon-name=3D"tick" alt=3D"(tick)=
+"></p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p>skp_proc_inserted</p></td>
+<td class=3D"confluenceTd"><p>Unique identification of HomeDW transformatio=
+n process that inserted the record into table. <br class=3D"atl-forced-newl=
+ine"> Not visible to users.</p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-tick" src=3D"=
+b8d046ae59b76f6dc8aca63249a8bc6b" data-emoticon-name=3D"tick" alt=3D"(tick)=
+"></p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-tick" src=3D"=
+b8d046ae59b76f6dc8aca63249a8bc6b" data-emoticon-name=3D"tick" alt=3D"(tick)=
+"></p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p>skp_proc_updated</p></td>
+<td class=3D"confluenceTd"><p>Unique identification of HomeDW transformatio=
+n process that last updated the record. <br class=3D"atl-forced-newline"> N=
+ot visible to users.</p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-tick" src=3D"=
+b8d046ae59b76f6dc8aca63249a8bc6b" data-emoticon-name=3D"tick" alt=3D"(tick)=
+"></p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-tick" src=3D"=
+b8d046ae59b76f6dc8aca63249a8bc6b" data-emoticon-name=3D"tick" alt=3D"(tick)=
+"></p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p>flag_deleted</p></td>
+<td class=3D"confluenceTd"><p>Set to 'Y' for HomeDW records that were delet=
+ed in source system (this should not happen often but it does).</p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-tick" src=3D"=
+b8d046ae59b76f6dc8aca63249a8bc6b" data-emoticon-name=3D"tick" alt=3D"(tick)=
+"></p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-tick" src=3D"=
+b8d046ae59b76f6dc8aca63249a8bc6b" data-emoticon-name=3D"tick" alt=3D"(tick)=
+"></p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p>dtime_valid_from</p></td>
+<td class=3D"confluenceTd"><p>Effective datetime when validity of record in=
+ history dimension and fact table started.</p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-tick" src=3D"=
+b8d046ae59b76f6dc8aca63249a8bc6b" data-emoticon-name=3D"tick" alt=3D"(tick)=
+"></p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-tick" src=3D"=
+b8d046ae59b76f6dc8aca63249a8bc6b" data-emoticon-name=3D"tick" alt=3D"(tick)=
+"></p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p>dtime_valid_to</p></td>
+<td class=3D"confluenceTd"><p>Effective datetime when validity of record in=
+ history dimension and fact table ended.</p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-tick" src=3D"=
+b8d046ae59b76f6dc8aca63249a8bc6b" data-emoticon-name=3D"tick" alt=3D"(tick)=
+"></p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-tick" src=3D"=
+b8d046ae59b76f6dc8aca63249a8bc6b" data-emoticon-name=3D"tick" alt=3D"(tick)=
+"></p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p>flag_current</p></td>
+<td class=3D"confluenceTd"><p>Set to 'Y' in history dimension table (DHT) f=
+or records that store actual data - those with date_effective_to set to '1.=
+1.3000'.</p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-cross" src=3D=
+"aa60c79e78ea814549a2f1312504f1d9" data-emoticon-name=3D"cross" alt=3D"(err=
+or)"></p></td>
+<td class=3D"confluenceTd"><p><img class=3D"emoticon emoticon-tick" src=3D"=
+b8d046ae59b76f6dc8aca63249a8bc6b" data-emoticon-name=3D"tick" alt=3D"(tick)=
+"></p></td>
+</tr>
+</tbody>=20
+<script type=3D"text/javascript">
+
+$("table[id=3D'TBL1703778320578']").data("appfire-table","true");
+(new org_swift_TableSorter()).customTable('TBL1703778320578',[],'',
+1,'lightgoldenrodyellow',true,
+'Click to sort','',false,
+false,false,true,
+0,false,'',true,
+'',false,false,'','','','',
+true,'',
+''
+);
+
+</script>=20
+</table>
+</div></li>
+</ol>
+    </div>
+</body>
+</html>
+------=_Part_9138_611929780.1704446274262
+Content-Type: image/svg+xml
+Content-Transfer-Encoding: 7bit
+Content-Location: file:///C:/aa60c79e78ea814549a2f1312504f1d9
+
+<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#DE350B" cx="8" cy="8" r="8"/><path d="M9.485 8.071l2.122 2.121a1 1 0 1 1-1.415 1.415l-2.12-2.122-2.122 2.122a1 1 0 1 1-1.414-1.415l2.12-2.12-2.12-2.122A1 1 0 1 1 5.95 4.536l2.121 2.12 2.121-2.12a1 1 0 1 1 1.415 1.414L9.485 8.07z" fill="#FFF"/></g></svg>
+------=_Part_9138_611929780.1704446274262
+Content-Type: image/svg+xml
+Content-Transfer-Encoding: 7bit
+Content-Location: file:///C:/b8d046ae59b76f6dc8aca63249a8bc6b
+
+<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#00875A" cx="8" cy="8" r="8"/><path d="M10.242 4.474a.941.941 0 0 1 1.634.934L8.11 11.996a.941.941 0 0 1-1.54.136L4.218 9.308a.941.941 0 1 1 1.446-1.205L7.15 9.886l3.093-5.412z" stroke="#FFF" stroke-width=".2" fill="#FFF" fill-rule="nonzero"/></g></svg>
+------=_Part_9138_611929780.1704446274262--
